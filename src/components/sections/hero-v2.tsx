@@ -155,12 +155,12 @@ export function HeroV2() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:h-[600px] flex items-center justify-center"
           >
-            <div className="relative w-full aspect-[4/3] lg:aspect-square max-w-[600px]">
+            <div className="relative w-full aspect-video max-w-[700px] group">
               {/* Abstract Background Shapes */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-[3rem] rotate-3 blur-3xl opacity-40" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-[3rem] rotate-3 blur-3xl opacity-40 transition-all duration-500 group-hover:rotate-6 group-hover:opacity-60" />
               
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-card/50 backdrop-blur-xl">
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-card/50 backdrop-blur-xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-primary/20">
                 {heroImages.map((src, index) => (
                   <motion.div
                     key={src}
@@ -176,7 +176,7 @@ export function HeroV2() {
                       src={src}
                       alt={`Project screenshot ${index + 1}`}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       priority={index === 0}
                     />
                     {/* Gradient Overlay for better text contrast if needed, mostly for bottom fade */}
