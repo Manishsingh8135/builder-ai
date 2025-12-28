@@ -31,12 +31,12 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground mb-12">Leadership</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {leadership.map((member) => (
-              <div key={member.id} className="bg-slate-50 rounded-2xl p-6">
+              <div key={member.id} className="bg-card border border-border rounded-2xl p-6">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent mb-4 flex items-center justify-center">
                   <span className="text-3xl font-bold text-white">
                     {member.name.charAt(0)}

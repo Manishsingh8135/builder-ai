@@ -52,7 +52,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <div className="relative mb-6">
@@ -106,7 +106,7 @@ export default function FAQPage() {
                       <AccordionItem
                         key={index}
                         value={`${category.category}-${index}`}
-                        className="bg-slate-50 rounded-2xl px-6 border-none"
+                        className="bg-card rounded-2xl px-6 border border-border"
                       >
                         <AccordionTrigger className="text-left font-semibold hover:no-underline">
                           {faq.question}

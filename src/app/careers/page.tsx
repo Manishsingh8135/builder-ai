@@ -33,7 +33,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -77,7 +77,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-12">
             Open Positions ({activeJobs.length})
@@ -86,7 +86,7 @@ export default function CareersPage() {
             {activeJobs.map((job) => (
               <div
                 key={job.id}
-                className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all"
+                className="bg-muted rounded-2xl p-6 hover:shadow-xl transition-all"
               >
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                   <div>

@@ -195,7 +195,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-8">
+              <div className="bg-card border border-border rounded-3xl p-8 lg:p-12">
                 <Calendar className="h-10 w-10 text-primary mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   Prefer to Talk?

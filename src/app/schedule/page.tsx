@@ -27,7 +27,7 @@ export default function SchedulePage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
@@ -73,7 +73,7 @@ export default function SchedulePage() {
                 </div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-8">
+              <div className="bg-muted rounded-2xl p-8">
                 <h3 className="font-semibold text-foreground mb-4">
                   In This Call, We&apos;ll Cover:
                 </h3>
@@ -94,7 +94,7 @@ export default function SchedulePage() {
               </div>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-8">
+            <div className="bg-muted rounded-2xl p-8">
               <div className="text-center py-16">
                 <Calendar className="h-16 w-16 text-primary mx-auto mb-6" />
                 <h3 className="text-xl font-semibold text-foreground mb-4">
@@ -103,14 +103,14 @@ export default function SchedulePage() {
                 <p className="text-muted-foreground mb-8">
                   Select a convenient time slot below
                 </p>
-                <div className="bg-white rounded-xl p-8 border border-border">
+                <div className="bg-card border border-border rounded-3xl p-8 lg:p-12">
                   <p className="text-muted-foreground mb-4">
                     Calendar integration would go here
                   </p>
                   <p className="text-sm text-muted-foreground">
                     In production, embed Cal.com or Calendly widget:
                   </p>
-                  <code className="block mt-2 text-xs bg-slate-100 p-2 rounded">
+                  <code className="block mt-2 text-xs bg-background p-2 rounded">
                     {siteConfig.scheduling.calendarLink}
                   </code>
                 </div>

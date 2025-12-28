@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 mb-12">
             <div>
@@ -67,7 +67,7 @@ export default function CaseStudiesPage() {
                 href={`/case-studies/${study.slug}`}
                 className="group block"
               >
-                <div className="relative h-56 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl mb-6 overflow-hidden">
+                <div className="relative h-56 bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-6 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute top-4 left-4 flex gap-2">
                     <Badge variant="secondary">{study.industry}</Badge>

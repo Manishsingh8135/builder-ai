@@ -36,7 +36,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
             {pricingTiers.map((tier) => (
@@ -44,8 +44,8 @@ export default function PricingPage() {
                 key={tier.id}
                 className={`relative rounded-3xl p-8 ${
                   tier.highlighted
-                    ? "bg-slate-900 text-white ring-4 ring-primary"
-                    : "bg-slate-50"
+                    ? "bg-primary/10 ring-2 ring-primary"
+                    : "bg-card border border-border"
                 }`}
               >
                 {tier.highlighted && (
@@ -54,19 +54,19 @@ export default function PricingPage() {
                   </div>
                 )}
                 <div className="mb-8">
-                  <h3 className={`text-2xl font-bold ${tier.highlighted ? "text-white" : "text-foreground"}`}>
+                  <h3 className="text-2xl font-bold text-foreground">
                     {tier.name}
                   </h3>
-                  <p className={`mt-2 ${tier.highlighted ? "text-slate-300" : "text-muted-foreground"}`}>
+                  <p className="mt-2 text-muted-foreground">
                     {tier.description}
                   </p>
                 </div>
                 <div className="mb-8">
-                  <div className={`text-sm ${tier.highlighted ? "text-slate-400" : "text-muted-foreground"}`}>
+                  <div className="text-sm text-muted-foreground">
                     {tier.price.period}
                   </div>
                   <div className="flex items-baseline">
-                    <span className={`text-4xl font-bold ${tier.highlighted ? "text-white" : "text-foreground"}`}>
+                    <span className="text-4xl font-bold text-foreground">
                       {tier.price.currency}{tier.price.amount}
                     </span>
                   </div>
@@ -74,8 +74,8 @@ export default function PricingPage() {
                 <ul className="space-y-4 mb-8">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start">
-                      <Check className={`h-5 w-5 mr-3 shrink-0 ${tier.highlighted ? "text-primary" : "text-primary"}`} />
-                      <span className={tier.highlighted ? "text-slate-300" : "text-muted-foreground"}>
+                      <Check className="h-5 w-5 mr-3 shrink-0 text-primary" />
+                      <span className="text-muted-foreground">
                         {feature}
                       </span>
                     </li>
@@ -83,19 +83,19 @@ export default function PricingPage() {
                   {tier.notIncluded.map((feature) => (
                     <li key={feature} className="flex items-start opacity-50">
                       <X className="h-5 w-5 mr-3 shrink-0" />
-                      <span className={tier.highlighted ? "text-slate-400" : "text-muted-foreground"}>
+                      <span className="text-muted-foreground/50">
                         {feature}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Button
-                  className={`w-full ${tier.highlighted ? "bg-white text-slate-900 hover:bg-slate-100" : "gradient-bg"}`}
+                  className={`w-full ${tier.highlighted ? "gradient-bg" : ""}`}
                   asChild
                 >
                   <Link href={tier.ctaLink}>{tier.cta}</Link>
                 </Button>
-                <p className={`mt-4 text-sm text-center ${tier.highlighted ? "text-slate-400" : "text-muted-foreground"}`}>
+                <p className="mt-4 text-sm text-center text-muted-foreground">
                   {tier.ideal}
                 </p>
               </div>
@@ -104,7 +104,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
             Pricing FAQ
@@ -114,7 +114,7 @@ export default function PricingPage() {
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className="bg-white rounded-2xl px-6 border-none"
+                className="bg-card rounded-2xl px-6 border border-border"
               >
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   {faq.question}

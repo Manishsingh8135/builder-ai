@@ -30,7 +30,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {services.map((service, index) => (
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                   </Link>
                 </div>
                 <div className="flex-1">
-                  <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-3xl flex items-center justify-center">
+                  <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-3xl flex items-center justify-center">
                     <Icon
                       name={service.icon}
                       className="h-32 w-32 text-primary/20"

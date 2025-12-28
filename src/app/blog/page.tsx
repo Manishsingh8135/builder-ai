@@ -39,7 +39,7 @@ export default function BlogPage() {
       </section>
 
       {featuredPosts.length > 0 && (
-        <section className="py-20 lg:py-32 bg-white">
+        <section className="py-20 lg:py-32 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-foreground mb-8">Featured</h2>
             <div className="grid lg:grid-cols-2 gap-8">
@@ -84,7 +84,7 @@ export default function BlogPage() {
         </section>
       )}
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground mb-8">All Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,7 +94,7 @@ export default function BlogPage() {
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
-                  className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all"
+                  className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all"
                 >
                   <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200" />
                   <div className="p-6">

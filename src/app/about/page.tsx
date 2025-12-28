@@ -35,7 +35,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               {companyStats.map((stat) => (
-                <div key={stat.label} className="bg-slate-50 rounded-2xl p-6 text-center">
+                <div key={stat.label} className="bg-card border border-border rounded-2xl p-6 text-center">
                   <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
                     {stat.value}
                   </div>
@@ -69,7 +69,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -81,7 +81,7 @@ export default function AboutPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {companyValues.map((value) => (
-              <div key={value.title} className="bg-white rounded-2xl p-6">
+              <div key={value.title} className="bg-muted rounded-2xl p-6">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
                   <Icon name={value.icon} className="h-6 w-6 text-white" />
                 </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -132,21 +132,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-900 text-white">
+      <section className="py-20 lg:py-32 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Global Presence
             </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We serve clients across USA, Canada, Europe, and the Middle East, bringing world-class solutions to businesses everywhere.
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {["United States", "Canada", "Europe", "Middle East"].map((region) => (
-              <div key={region} className="bg-slate-800 rounded-2xl p-6">
+              <div key={region} className="bg-card border border-border rounded-2xl p-6">
                 <div className="text-2xl font-bold mb-2">{region}</div>
-                <div className="text-slate-400">Active Clients</div>
+                <div className="text-muted-foreground">Active Clients</div>
               </div>
             ))}
           </div>

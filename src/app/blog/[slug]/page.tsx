@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </section>
 
-      <section className="py-12 lg:py-20 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl mb-12" />
 
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {relatedPosts.length > 0 && (
-        <section className="py-20 lg:py-32 bg-slate-50">
+        <section className="py-20 lg:py-32 bg-card">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-foreground mb-8">
               Related Articles
@@ -145,7 +145,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={related.id}
                   href={`/blog/${related.slug}`}
-                  className="group bg-white rounded-2xl p-6 hover:shadow-xl transition-all"
+                  className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all"
                 >
                   <Badge variant="secondary" className="mb-3">
                     {related.category}

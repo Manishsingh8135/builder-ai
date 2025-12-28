@@ -63,7 +63,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2 space-y-12">
@@ -76,7 +76,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <p className="text-lg text-muted-foreground">{study.solution}</p>
               </div>
               {study.testimonial && (
-                <div className="bg-slate-50 rounded-2xl p-8">
+                <div className="bg-card border border-border rounded-2xl p-8">
                   <Quote className="h-10 w-10 text-primary/20 mb-4" />
                   <p className="text-xl text-foreground italic mb-6">
                     &ldquo;{study.testimonial.quote}&rdquo;
@@ -128,7 +128,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       </section>
 
       {relatedStudies.length > 0 && (
-        <section className="py-20 lg:py-32 bg-slate-50">
+        <section className="py-20 lg:py-32 bg-card">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-foreground mb-12">Related Case Studies</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -136,7 +136,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <Link
                   key={related.id}
                   href={`/case-studies/${related.slug}`}
-                  className="group bg-white rounded-2xl p-8 hover:shadow-xl transition-all"
+                  className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all"
                 >
                   <Badge className="mb-4">{related.industry}</Badge>
                   <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">

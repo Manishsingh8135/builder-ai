@@ -28,7 +28,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {processSteps.map((step, index) => (
@@ -55,12 +55,12 @@ export default function ProcessPage() {
                   <p className="text-lg text-muted-foreground mb-6">
                     {step.description}
                   </p>
-                  <div className="inline-block px-4 py-2 bg-slate-100 rounded-full text-sm text-muted-foreground">
+                  <div className="inline-block px-4 py-2 bg-muted rounded-full text-sm text-muted-foreground">
                     Duration: {step.duration}
                   </div>
                 </div>
                 <div className="flex-1 grid md:grid-cols-2 gap-6">
-                  <div className="bg-slate-50 rounded-2xl p-6">
+                  <div className="bg-muted rounded-2xl p-6">
                     <h3 className="font-semibold text-foreground mb-4">Activities</h3>
                     <ul className="space-y-2">
                       {step.activities.map((activity) => (
@@ -89,7 +89,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -101,7 +101,7 @@ export default function ProcessPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processHighlights.map((highlight) => (
-              <div key={highlight.title} className="bg-white rounded-2xl p-6">
+              <div key={highlight.title} className="bg-card border border-border rounded-2xl p-6">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
                   <Icon name={highlight.icon} className="h-6 w-6 text-white" />
                 </div>

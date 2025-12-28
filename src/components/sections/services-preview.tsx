@@ -8,7 +8,7 @@ import { Icon } from "@/components/common/icon";
 
 export function ServicesPreview() {
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export function ServicesPreview() {
             >
               <Link
                 href={`/services/${service.slug}`}
-                className="group block h-full p-6 bg-background rounded-2xl border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300"
+                className="group block h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Icon name={service.icon} className="h-7 w-7 text-white" />

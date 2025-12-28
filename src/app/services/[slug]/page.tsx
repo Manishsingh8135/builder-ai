@@ -108,7 +108,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </h2>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {service.benefits.map((benefit) => (
-                  <div key={benefit.label} className="bg-slate-50 rounded-2xl p-6">
+                  <div key={benefit.label} className="bg-muted rounded-2xl p-6">
                     <div className="text-3xl font-bold gradient-text mb-2">
                       {benefit.metric}
                     </div>
@@ -132,7 +132,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-slate-50">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
             Technologies We Use
@@ -148,7 +148,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </section>
 
       {relatedCaseStudies.length > 0 && (
-        <section className="py-20 lg:py-32 bg-white">
+        <section className="py-20 lg:py-32 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
               Related Case Studies
@@ -158,7 +158,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <Link
                   key={study.id}
                   href={`/case-studies/${study.slug}`}
-                  className="group block bg-slate-50 rounded-2xl p-8 hover:shadow-xl transition-all"
+                  className="group block bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all"
                 >
                   <Badge className="mb-4">{study.industry}</Badge>
                   <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">

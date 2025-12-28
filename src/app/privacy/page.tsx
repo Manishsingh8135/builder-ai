@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <section className="py-12 lg:py-20 bg-white">
+      <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2>1. Introduction</h2>

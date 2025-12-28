@@ -9,7 +9,7 @@ import { Icon } from "@/components/common/icon";
 
 export function ProcessPreview() {
   return (
-    <section className="py-20 lg:py-32 bg-slate-900 text-white">
+    <section className="py-20 lg:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,13 +17,13 @@ export function ProcessPreview() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Our Process
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             From Idea to Impact
           </h2>
-          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Our proven methodology ensures successful project delivery every time.
           </p>
         </motion.div>
@@ -38,7 +38,7 @@ export function ProcessPreview() {
               transition={{ delay: index * 0.1 }}
               className="relative"
             >
-              <div className="bg-slate-800 rounded-2xl p-6 h-full">
+              <div className="bg-muted rounded-2xl p-6 h-full">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
                   <Icon name={step.icon} className="h-6 w-6 text-white" />
                 </div>
@@ -46,13 +46,13 @@ export function ProcessPreview() {
                   Step {step.step}
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-sm text-slate-400 line-clamp-3">
+                <p className="text-sm text-muted-foreground line-clamp-3">
                   {step.description}
                 </p>
               </div>
               {index < processSteps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-                  <ArrowRight className="h-4 w-4 text-slate-600" />
+                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
                 </div>
               )}
             </motion.div>
@@ -67,7 +67,7 @@ export function ProcessPreview() {
         >
           <Button
             variant="outline"
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-border text-foreground hover:bg-muted"
             asChild
           >
             <Link href="/process">
