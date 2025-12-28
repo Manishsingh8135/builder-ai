@@ -52,6 +52,13 @@ export function CaseStudiesPreview() {
                 className="group block h-full"
               >
                 <div className="relative h-64 bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-6 overflow-hidden">
+                  {study.images && study.images[0] && (
+                    <img
+                      src={study.images[0]}
+                      alt={study.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary">{study.industry}</Badge>

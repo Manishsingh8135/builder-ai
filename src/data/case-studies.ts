@@ -23,6 +23,7 @@ export interface CaseStudy {
   results: CaseStudyResult[];
   technologies: string[];
   testimonial: CaseStudyTestimonial;
+  images?: string[];
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -46,6 +47,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Zero", label: "Monthly Software Fees" },
     ],
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Vercel"],
+    images: ["/images/r1pfitness1.png", "/images/r1pfitness2.png", "/images/r1pfitness3.png"],
     testimonial: {
       quote:
         "Builder AI delivered exactly what I envisioned. My gym now runs smoothly with a custom system that does everything I need - no more paying for multiple subscriptions.",
@@ -73,6 +75,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Mobile", label: "First Design" },
     ],
     technologies: ["Next.js", "TailwindCSS", "Vercel", "Google Analytics"],
+    images: ["/images/sheddler1.png", "/images/sheddler2.png"],
     testimonial: {
       quote:
         "The website perfectly represents our services. We've seen a significant increase in client inquiries since launching.",
@@ -154,6 +157,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Growing", label: "Community" },
     ],
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Mapbox", "Vercel"],
+    images: ["/images/travelspire1.png", "/images/travelspire2.png"],
     testimonial: {
       quote:
         "Travel Spirene is our passion project to make Northeast India exploration easy and accessible. We're building the platform we wished existed.",

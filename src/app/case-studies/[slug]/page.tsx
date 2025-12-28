@@ -65,6 +65,21 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {study.images && study.images.length > 0 && (
+            <div className="mb-16">
+              <div className="grid md:grid-cols-2 gap-6">
+                {study.images.map((image, index) => (
+                  <div key={index} className="rounded-2xl overflow-hidden">
+                    <img
+                      src={image}
+                      alt={`${study.title} - Image ${index + 1}`}
+                      className="w-full h-64 md:h-80 object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="grid lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2 space-y-12">
               <div>
