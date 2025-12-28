@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="iconAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="iconGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <g transform="translate(4, 4)">
+    <!-- Main building blocks forming "B" -->
+    <rect x="0" y="26" width="18" height="14" rx="3" fill="url(#iconGradient)"/>
+    <rect x="0" y="13" width="18" height="11" rx="2.5" fill="url(#iconGradient)" opacity="0.9"/>
+    <rect x="0" y="0" width="18" height="11" rx="2.5" fill="url(#iconGradient)" opacity="0.8"/>
+    
+    <!-- Right blocks -->
+    <rect x="16" y="2" width="14" height="9" rx="2" fill="url(#iconAccent)" opacity="0.9"/>
+    <rect x="16" y="15" width="16" height="9" rx="2" fill="url(#iconAccent)"/>
+    <rect x="16" y="28" width="14" height="10" rx="2" fill="url(#iconAccent)" opacity="0.9"/>
+    
+    <!-- AI Neural dots -->
+    <circle cx="36" cy="6" r="3" fill="url(#iconGradient)" filter="url(#iconGlow)"/>
+    <circle cx="38" cy="20" r="2.5" fill="url(#iconAccent)" filter="url(#iconGlow)"/>
+    <circle cx="36" cy="34" r="3" fill="url(#iconGradient)" filter="url(#iconGlow)"/>
+    
+    <!-- Neural connections -->
+    <path d="M30 6 L36 6" stroke="url(#iconAccent)" stroke-width="1.2" opacity="0.6"/>
+    <path d="M32 20 L38 20" stroke="url(#iconGradient)" stroke-width="1.2" opacity="0.6"/>
+    <path d="M30 34 L36 34" stroke="url(#iconAccent)" stroke-width="1.2" opacity="0.6"/>
+    <path d="M36 9 L38 17.5" stroke="url(#iconGradient)" stroke-width="1" opacity="0.4"/>
+    <path d="M38 22.5 L36 31" stroke="url(#iconGradient)" stroke-width="1" opacity="0.4"/>
+  </g>
+</svg>
