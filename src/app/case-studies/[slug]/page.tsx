@@ -109,7 +109,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-slate-50 rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-2xl p-6">
                 <h3 className="font-semibold text-foreground mb-6">Results</h3>
                 <div className="space-y-6">
                   {study.results.map((result) => (
@@ -123,7 +123,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-6">
+              <div className="bg-card border border-border rounded-2xl p-6">
                 <h3 className="font-semibold text-foreground mb-4">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2">
                   {study.technologies.map((tech) => (

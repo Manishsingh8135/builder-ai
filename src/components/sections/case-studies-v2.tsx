@@ -19,23 +19,23 @@ const caseStudies = [
     ],
     quote: "Builder AI delivered exactly what I envisioned. My gym now runs smoothly with a custom system.",
     author: "Hipolito Rivera",
-    gradient: "from-violet-600 to-purple-600",
+    image: "/images/r1pfitness1.png",
     href: "/case-studies/r1p-fitness-gym-management",
   },
   {
-    id: "little-tree-farm",
-    title: "Little Tree Farm",
-    category: "E-commerce & Brand",
-    location: "Nova Scotia, Canada",
-    description: "Story-driven e-commerce website connecting the farm directly to customers",
+    id: "shedders-healthcare",
+    title: "Shedder's Healthcare",
+    category: "Professional Website",
+    location: "Healthcare Services",
+    description: "Professional website showcasing services with optimized local SEO",
     results: [
-      { metric: "500+", label: "Subscribers" },
-      { metric: "Direct", label: "Sales" },
+      { metric: "200%", label: "Inquiries" },
+      { metric: "Top 10", label: "Local SEO" },
     ],
-    quote: "The website captures the heart of our farm perfectly. Customers love it.",
-    author: "Mike Quill",
-    gradient: "from-emerald-600 to-teal-600",
-    href: "/case-studies/little-tree-farm-website",
+    quote: "The website perfectly represents our services. We've seen a significant increase in client inquiries.",
+    author: "Shedder Jacques",
+    image: "/images/sheddler1.png",
+    href: "/case-studies/shedders-healthcare-website",
   },
   {
     id: "travel-spirene",
@@ -49,7 +49,7 @@ const caseStudies = [
     ],
     quote: "We're building the platform we wished existed for Northeast India exploration.",
     author: "Builder AI Team",
-    gradient: "from-orange-600 to-red-600",
+    image: "/images/travelspire1.png",
     href: "/case-studies/travel-spirene-exploration-platform",
   },
 ];
@@ -113,9 +113,14 @@ export function CaseStudiesV2() {
                 href={study.href}
                 className="group block h-full rounded-3xl bg-background border border-border hover:border-primary/30 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
               >
-                {/* Header with gradient */}
-                <div className={`h-32 bg-gradient-to-br ${study.gradient} relative`}>
-                  <div className="absolute inset-0 bg-black/20" />
+                {/* Header with image */}
+                <div className="h-48 md:h-56 relative overflow-hidden">
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30" />
                   <div className="absolute bottom-4 left-6 right-6">
                     <span className="inline-block px-3 py-1 text-xs font-medium text-white/90 bg-white/20 backdrop-blur-sm rounded-full">
                       {study.category}
