@@ -40,7 +40,9 @@ export const siteConfig = {
     ],
   },
   scheduling: {
-    calendarLink: "https://cal.com/builder-ai/discovery",
+    calendarLink: "https://cal.com/mike-t9f2tv/30min",
+    calUsername: "mike-t9f2tv",
+    calEventType: "30min",
     meetingDuration: 30,
   },
 };

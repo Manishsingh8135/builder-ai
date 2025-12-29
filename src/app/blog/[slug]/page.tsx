@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
 import { blogPosts } from "@/data/blog-posts";
-import { teamMembers } from "@/data/team";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
 
@@ -24,7 +23,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   
   const siteUrl = "https://builder-ai.dev";
   const pageUrl = `${siteUrl}/blog/${slug}`;
-  const author = teamMembers.find((m) => m.id === post.author);
   
   return {
     title: `${post.title} | Builder AI Blog`,
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       "software development",
       "startup tips",
     ],
-    authors: [{ name: author?.name || "Builder AI Team" }],
+    authors: [{ name: "Builder AI Team" }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
-      authors: [author?.name || "Builder AI Team"],
+      authors: ["Builder AI Team"],
       tags: post.tags,
       images: post.image 
         ? [{ url: post.image, width: 1200, height: 630, alt: post.title }]
@@ -69,7 +67,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const author = teamMembers.find((m) => m.id === post.author);
   const relatedPosts = blogPosts
     .filter((p) => p.id !== post.id && p.category === post.category)
     .slice(0, 2);
@@ -96,15 +93,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent mr-3 flex items-center justify-center">
                 <span className="text-white font-bold">
-                  {author?.name?.charAt(0) || "T"}
+                  B
                 </span>
               </div>
               <div>
                 <div className="font-medium text-foreground">
-                  {author?.name || "Team"}
+                  Builder AI Team
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  {author?.role || "Author"}
+                  Content Team
                 </div>
               </div>
             </div>

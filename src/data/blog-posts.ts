@@ -6,7 +6,7 @@ export const blogPosts = [
     excerpt:
       "Learn how AI automation is transforming business operations and how you can leverage it to stay competitive in today's fast-paced market.",
     content: "",
-    author: "team-002",
+    author: "builder-ai-team",
     publishedAt: "2024-01-15",
     updatedAt: "2024-01-15",
     category: "AI Automation",
@@ -22,7 +22,7 @@ export const blogPosts = [
     excerpt:
       "A practical framework for measuring the return on investment from automation projects, with real examples and benchmarks.",
     content: "",
-    author: "team-001",
+    author: "builder-ai-team",
     publishedAt: "2024-01-08",
     updatedAt: "2024-01-08",
     category: "Business",
@@ -38,7 +38,7 @@ export const blogPosts = [
     excerpt:
       "A comprehensive guide to selecting technologies for your next web project, from frontend frameworks to database choices.",
     content: "",
-    author: "team-003",
+    author: "builder-ai-team",
     publishedAt: "2024-01-02",
     updatedAt: "2024-01-02",
     category: "Development",
@@ -54,7 +54,7 @@ export const blogPosts = [
     excerpt:
       "Discover how AI-powered chatbots and automation are revolutionizing customer support while reducing costs.",
     content: "",
-    author: "team-002",
+    author: "builder-ai-team",
     publishedAt: "2023-12-20",
     updatedAt: "2023-12-20",
     category: "AI Automation",
@@ -70,7 +70,7 @@ export const blogPosts = [
     excerpt:
       "Why custom internal tools beat spreadsheets, and how to approach building tools that your team will actually use.",
     content: "",
-    author: "team-003",
+    author: "builder-ai-team",
     publishedAt: "2023-12-15",
     updatedAt: "2023-12-15",
     category: "Development",
@@ -86,7 +86,7 @@ export const blogPosts = [
     excerpt:
       "A practical comparison to help you decide between native mobile apps, web apps, or progressive web apps for your business.",
     content: "",
-    author: "team-004",
+    author: "builder-ai-team",
     publishedAt: "2023-12-10",
     updatedAt: "2023-12-10",
     category: "Strategy",

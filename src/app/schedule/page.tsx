@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Calendar, Clock, Video, CheckCircle } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { generatePageMetadata } from "@/lib/seo-config";
+import { CalEmbed } from "@/components/common/cal-embed";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Schedule a Free Consultation | Book MVP Development Call",
@@ -105,27 +106,12 @@ export default function SchedulePage() {
               </div>
             </div>
 
-            <div className="bg-muted rounded-2xl p-8">
-              <div className="text-center py-16">
-                <Calendar className="h-16 w-16 text-primary mx-auto mb-6" />
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Booking Calendar
-                </h3>
-                <p className="text-muted-foreground mb-8">
-                  Select a convenient time slot below
-                </p>
-                <div className="bg-card border border-border rounded-3xl p-8 lg:p-12">
-                  <p className="text-muted-foreground mb-4">
-                    Calendar integration would go here
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    In production, embed Cal.com or Calendly widget:
-                  </p>
-                  <code className="block mt-2 text-xs bg-background p-2 rounded">
-                    {siteConfig.scheduling.calendarLink}
-                  </code>
-                </div>
-                <p className="mt-8 text-sm text-muted-foreground">
+            <div className="bg-card border border-border rounded-2xl overflow-hidden">
+              <div className="h-[600px]">
+                <CalEmbed calLink={`${siteConfig.scheduling.calUsername}/${siteConfig.scheduling.calEventType}`} />
+              </div>
+              <div className="p-4 border-t border-border text-center">
+                <p className="text-sm text-muted-foreground">
                   Or email us directly at{" "}
                   <a
                     href={`mailto:${siteConfig.contact.salesEmail}`}

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
-import { companyValues, teamMembers } from "@/data/team";
+import { companyValues } from "@/data/team";
 import { companyStats } from "@/data/stats";
 import { Icon } from "@/components/common/icon";
 import { Button } from "@/components/ui/button";
@@ -26,8 +26,6 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 export default function AboutPage() {
-  const leadership = teamMembers.filter((m) => m.leadership);
-
   return (
     <>
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle">

@@ -24,35 +24,76 @@ export interface CaseStudy {
   technologies: string[];
   testimonial: CaseStudyTestimonial;
   images?: string[];
+  features?: {
+    category: string;
+    items: string[];
+  }[];
 }
 
 export const caseStudies: CaseStudy[] = [
   {
     id: "r1p-fitness",
     slug: "r1p-fitness-gym-management",
-    title: "Complete Gym Management System for R1P FITNESS",
+    title: "Full-Stack Gym Management Platform for R1P FITNESS",
     client: "R1P FITNESS - ripfitgym.com",
     industry: "Fitness & Wellness",
     service: "mvp-development",
     duration: "4 months",
     featured: true,
     challenge:
-      "Hipolito Rivera needed a complete digital solution for his gym in Hawaii - from member management to payments, class scheduling, and performance tracking. Existing solutions were expensive and didn't fit his specific needs.",
+      "Hipolito Rivera needed a complete digital transformation for his gym in Hawaii. Existing gym software was expensive ($200-500/month), lacked customization, and required multiple subscriptions for different features. He wanted a single, custom solution that he owned outright.",
     solution:
-      "We built a comprehensive gym management system from scratch including member portal, admin dashboard, payment processing with Stripe, class booking, trainer management, workout tracking, and detailed analytics.",
+      "We built a complete gym management ecosystem from scratch: (1) Marketing landing page to attract new members, (2) Member app with authentication, payments via Stripe, personal dashboard, workout tracking, gamification with points & rewards system, and advanced activity filtering, (3) State-of-the-art admin panel with booking management, class scheduling, user management, workout & activity management, and complete business analytics.",
     results: [
       { metric: "100%", label: "Digital Operations" },
       { metric: "60%", label: "Admin Time Saved" },
       { metric: "3x", label: "Member Engagement" },
-      { metric: "Zero", label: "Monthly Software Fees" },
+      { metric: "$0", label: "Monthly Software Fees" },
     ],
-    technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Vercel"],
+    technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS", "Vercel"],
     images: ["/images/r1pfitness1.png", "/images/r1pfitness2.png", "/images/r1pfitness3.png"],
+    features: [
+      {
+        category: "Landing Page",
+        items: [
+          "Modern marketing website",
+          "Membership plans showcase",
+          "Class schedules display",
+          "Lead capture forms",
+          "Mobile responsive design",
+        ],
+      },
+      {
+        category: "Member App",
+        items: [
+          "User authentication & profiles",
+          "Stripe payment integration",
+          "Personal member dashboard",
+          "Workout & activity tracking",
+          "Gamification with points system",
+          "Rewards & achievements",
+          "Advanced filtering for workouts",
+          "Class booking system",
+        ],
+      },
+      {
+        category: "Admin Panel",
+        items: [
+          "Complete booking management",
+          "Class & schedule management",
+          "Member management & analytics",
+          "Workout library management",
+          "Activity tracking oversight",
+          "Revenue & payment reports",
+          "Automated notifications",
+        ],
+      },
+    ],
     testimonial: {
       quote:
         "Builder AI delivered exactly what I envisioned. My gym now runs smoothly with a custom system that does everything I need - no more paying for multiple subscriptions.",
       author: "Hipolito Rivera",
-      role: "Owner, R1P FITNESS",
+      role: "Owner, R1P FITNESS, Hawaii USA",
     },
   },
   {

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
-import { teamMembers } from "@/data/team";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
 import { generatePageMetadata } from "@/lib/seo-config";
@@ -28,10 +27,6 @@ export default function BlogPage() {
   const featuredPosts = blogPosts.filter((p) => p.featured);
   const recentPosts = blogPosts.filter((p) => !p.featured);
 
-  const getAuthor = (authorId: string) => {
-    return teamMembers.find((m) => m.id === authorId);
-  };
-
   return (
     <>
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle">
@@ -56,9 +51,7 @@ export default function BlogPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-foreground mb-8">Featured</h2>
             <div className="grid lg:grid-cols-2 gap-8">
-              {featuredPosts.map((post) => {
-                const author = getAuthor(post.author);
-                return (
+              {featuredPosts.map((post) => (
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
@@ -77,7 +70,7 @@ export default function BlogPage() {
                         <div className="w-10 h-10 rounded-full bg-primary/20 mr-3" />
                         <div>
                           <div className="font-medium text-sm text-foreground">
-                            {author?.name || "Team"}
+                            Builder AI Team
                           </div>
                           <div className="text-xs text-muted-foreground">
                             {new Date(post.publishedAt).toLocaleDateString()}
@@ -90,8 +83,7 @@ export default function BlogPage() {
                       </div>
                     </div>
                   </Link>
-                );
-              })}
+              ))}
             </div>
           </div>
         </section>
@@ -101,9 +93,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground mb-8">All Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => {
-              const author = getAuthor(post.author);
-              return (
+            {blogPosts.map((post) => (
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
@@ -122,7 +112,7 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">
-                        {author?.name || "Team"}
+                        Builder AI Team
                       </span>
                       <span className="text-muted-foreground">
                         {post.readTime} min
@@ -130,8 +120,7 @@ export default function BlogPage() {
                     </div>
                   </div>
                 </Link>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
