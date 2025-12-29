@@ -73,7 +73,8 @@ export function ServicesInteractive() {
                     <div className="h-px w-full bg-border" />
                 </div>
 
-                <div className="flex flex-col">
+                {/* Desktop View (Hover Reveal) */}
+                <div className="hidden lg:flex flex-col">
                     {services.map((service, index) => (
                         <Link
                             key={service.id}
@@ -92,7 +93,6 @@ export function ServicesInteractive() {
                                 </h3>
                             </div>
 
-                            {/* Description Reveal */}
                             <motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{
@@ -111,6 +111,40 @@ export function ServicesInteractive() {
                         </Link>
                     ))}
                     <div className="h-px w-full bg-border" />
+                </div>
+
+                {/* Mobile View (Simple List/Accordion) */}
+                <div className="flex lg:hidden flex-col gap-8">
+                    {services.map((service) => (
+                        <Link
+                            key={service.id}
+                            href={service.href}
+                            className="group border border-border rounded-2xl p-6 bg-card/50 backdrop-blur-sm active:border-primary transition-colors"
+                        >
+                            <div className="mb-4 aspect-video relative overflow-hidden rounded-xl">
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-black/40" />
+                                <span className="absolute top-3 left-3 font-mono text-xs text-white bg-black/50 px-2 py-1 rounded">
+                                    {service.id}
+                                </span>
+                            </div>
+
+                            <h3 className="text-3xl font-bold tracking-tighter mb-3">
+                                {service.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                                {service.description}
+                            </p>
+                            <div className="flex items-center text-primary font-bold text-xs uppercase tracking-wide">
+                                View Service <ArrowUpRight className="ml-2 w-4 h-4" />
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>

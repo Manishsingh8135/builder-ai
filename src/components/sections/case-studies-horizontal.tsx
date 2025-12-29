@@ -50,9 +50,9 @@ export function CaseStudiesHorizontal() {
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-background">
-            <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-
+        <section ref={targetRef} className="relative bg-background lg:h-[300vh]">
+            {/* Desktop Horizontal Scroll */}
+            <div className="hidden lg:flex sticky top-0 h-screen items-center overflow-hidden">
                 <div className="absolute top-10 left-10 z-10">
                     <h2 className="text-sm font-mono uppercase tracking-widest text-primary">
                         Selected Works (0{caseStudies.length})
@@ -64,12 +64,10 @@ export function CaseStudiesHorizontal() {
                         <Link
                             key={study.id}
                             href={study.href}
-                            className="group relative w-[80vw] md:w-[60vw] lg:w-[45vw] aspect-[4/3] flex-shrink-0 bg-secondary overflow-hidden block"
+                            className="group relative w-[45vw] aspect-[4/3] flex-shrink-0 bg-secondary overflow-hidden block"
                         >
                             <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 ease-out">
-                                {/* Placeholder for actual images - ensuring we have fallback if files missing */}
                                 <div className="absolute inset-0 bg-muted" />
-                                {/* Assuming images might not exist perfectly yet, we use a colored fallback div if image fails to load, but here we try Image component */}
                                 <Image
                                     src={study.image}
                                     alt={study.title}
@@ -82,7 +80,7 @@ export function CaseStudiesHorizontal() {
                             <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end bg-gradient-to-t from-black/80 to-transparent">
                                 <div>
                                     <span className="text-xs font-mono text-primary mb-2 block">{study.category} — {study.year}</span>
-                                    <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight">{study.title}</h3>
+                                    <h3 className="text-4xl font-bold text-white tracking-tight">{study.title}</h3>
                                 </div>
                                 <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-black/50 backdrop-blur-sm group-hover:bg-primary group-hover:text-black group-hover:border-primary transition-all">
                                     <ArrowUpRight className="w-5 h-5" />
@@ -91,6 +89,39 @@ export function CaseStudiesHorizontal() {
                         </Link>
                     ))}
                 </motion.div>
+            </div>
+
+            {/* Mobile Vertical List */}
+            <div className="lg:hidden py-20 px-6">
+                <div className="mb-10">
+                    <h2 className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
+                        Selected Works
+                    </h2>
+                </div>
+                <div className="flex flex-col gap-8">
+                    {caseStudies.map((study) => (
+                        <Link
+                            key={study.id}
+                            href={study.href}
+                            className="block group relative w-full aspect-[4/3] overflow-hidden rounded-2xl"
+                        >
+                            <Image
+                                src={study.image}
+                                alt={study.title}
+                                fill
+                                className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-6">
+                                <span className="text-xs text-primary font-mono mb-1 block">{study.category}</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">{study.title}</h3>
+                                <div className="flex items-center text-white/80 text-xs font-bold uppercase tracking-wide">
+                                    View Project <ArrowUpRight className="ml-2 w-4 h-4" />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
             </div>
         </section>
     );

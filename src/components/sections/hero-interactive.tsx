@@ -22,7 +22,7 @@ export function HeroInteractive() {
             className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-background"
             onMouseMove={handleMouseMove}
         >
-            {/* Background Layer (Muted) */}
+            {/* Background Layer (Muted) - Visible on both but static on mobile serves as base */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
                 <h1 className="text-[13vw] font-bold leading-[0.85] tracking-tighter text-muted/20 font-sans">
                     DIGITAL
@@ -32,17 +32,24 @@ export function HeroInteractive() {
                 </h1>
             </div>
 
-            {/* Foreground Layer (Reveal) */}
+            {/* Mobile Foreground (Static, Fully Visible) */}
+            <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-10">
+                <h1 className="text-[13vw] font-bold leading-[0.85] tracking-tighter text-primary font-sans">
+                    DIGITAL
+                </h1>
+                <h1 className="text-[13vw] font-bold leading-[0.85] tracking-tighter text-primary font-sans">
+                    ATELIER
+                </h1>
+            </div>
+
+            {/* Desktop Foreground (Interactive Mask) */}
             <motion.div
-                className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none bg-background"
+                className="hidden lg:flex absolute inset-0 flex-col items-center justify-center pointer-events-none select-none bg-background z-10"
                 style={{
                     maskImage,
                     WebkitMaskImage: maskImage,
                     maskRepeat: "no-repeat",
                     WebkitMaskRepeat: "no-repeat",
-                    // We set bg-background to cover the bottom layer, but the text inside should be primary.
-                    // Actually, we want the text to be visible only through the mask.
-                    // So the div itself should be transparent, but contain the colored text.
                     backgroundColor: "transparent",
                 }}
             >
@@ -55,8 +62,8 @@ export function HeroInteractive() {
             </motion.div>
 
             {/* Content Overlay */}
-            <div className="absolute z-20 bottom-24 flex flex-col items-center space-y-6">
-                <p className="font-mono text-sm tracking-[0.2em] uppercase text-muted-foreground">
+            <div className="absolute z-20 bottom-24 flex flex-col items-center space-y-6 px-4 text-center">
+                <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-muted-foreground">
                     Build Faster. Scale Smarter.
                 </p>
                 <Link
