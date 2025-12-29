@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/site-config";
+import { FluidCursor } from "@/components/ui/fluid-cursor";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -33,8 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} font-sans antialiased`}>
         <Header />
+        <FluidCursor />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
