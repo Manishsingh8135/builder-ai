@@ -51,7 +51,7 @@ export default function BlogPage() {
                     href={`/blog/${post.slug}`}
                     className="group block"
                   >
-                    <div className="h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl mb-6" />
+                    <div className="h-64 bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-6" />
                     <Badge className="mb-3">{post.category}</Badge>
                     <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {post.title}
@@ -96,7 +96,7 @@ export default function BlogPage() {
                   href={`/blog/${post.slug}`}
                   className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all"
                 >
-                  <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200" />
+                  <div className="h-48 bg-gradient-to-br from-muted to-muted/50" />
                   <div className="p-6">
                     <Badge variant="secondary" className="mb-3">
                       {post.category}

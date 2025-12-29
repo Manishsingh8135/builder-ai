@@ -22,7 +22,7 @@ export default function PrivacyPage() {
 
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg prose-invert max-w-none">
             <h2>1. Introduction</h2>
             <p>
               {siteConfig.name} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. 

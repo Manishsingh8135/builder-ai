@@ -118,7 +118,7 @@ export function CTAV2() {
               >
                 <Button
                   size="lg"
-                  className="group h-14 px-8 text-lg font-semibold rounded-2xl bg-white text-primary hover:bg-white/90 shadow-xl shadow-black/20 transition-all duration-300"
+                  className="group h-14 px-8 text-lg font-semibold rounded-2xl bg-background text-primary hover:bg-background/90 shadow-xl shadow-black/20 transition-all duration-300"
                   asChild
                 >
                   <Link href="/schedule">

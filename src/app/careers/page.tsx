@@ -58,7 +58,7 @@ export default function CareersPage() {
                 ))}
               </div>
             </div>
-            <div className="bg-slate-50 rounded-2xl p-8">
+            <div className="bg-card rounded-2xl p-8">
               <h2 className="text-2xl font-bold text-foreground mb-6">
                 Our Culture
               </h2>
@@ -126,7 +126,7 @@ export default function CareersPage() {
             ))}
           </div>
           {activeJobs.length === 0 && (
-            <div className="text-center py-12 bg-white rounded-2xl">
+            <div className="text-center py-12 bg-card rounded-2xl">
               <p className="text-muted-foreground mb-4">
                 No open positions at the moment.
               </p>

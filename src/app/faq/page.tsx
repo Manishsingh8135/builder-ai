@@ -122,7 +122,7 @@ export default function FAQPage() {
             </div>
           )}
 
-          <div className="mt-16 text-center bg-slate-50 rounded-2xl p-8">
+          <div className="mt-16 text-center bg-card rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-foreground mb-2">
               Still Have Questions?
             </h3>

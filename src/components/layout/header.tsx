@@ -43,7 +43,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-full.svg"
+              src="/logo.svg"
               alt={siteConfig.name}
               width={160}
               height={40}
@@ -84,7 +84,7 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-border p-2"
+                      className="absolute top-full left-0 mt-2 w-72 bg-background/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-2"
                     >
                       {item.children.map((child) => (
                         <Link
@@ -140,7 +140,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-b border-border overflow-hidden"
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {mainNavigation.map((item) => (

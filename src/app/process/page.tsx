@@ -71,7 +71,7 @@ export default function ProcessPage() {
                       ))}
                     </ul>
                   </div>
-                  <div className="bg-slate-50 rounded-2xl p-6">
+                  <div className="bg-card rounded-2xl p-6">
                     <h3 className="font-semibold text-foreground mb-4">Deliverables</h3>
                     <ul className="space-y-2">
                       {step.deliverables.map((deliverable) => (

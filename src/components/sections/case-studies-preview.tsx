@@ -63,7 +63,7 @@ export function CaseStudiesPreview() {
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary">{study.industry}</Badge>
                   </div>
-                  <div className="absolute bottom-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute bottom-4 right-4 w-10 h-10 bg-background rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
                     <ArrowUpRight className="h-5 w-5 text-primary" />
                   </div>
                 </div>
