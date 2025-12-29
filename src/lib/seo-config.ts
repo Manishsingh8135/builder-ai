@@ -96,22 +96,23 @@ export const organizationSchema = {
   logo: `${siteUrl}/logo.svg`,
   description: siteConfig.description,
   email: siteConfig.contact.email,
-  telephone: siteConfig.contact.phone.us,
+  // telephone: siteConfig.contact.phone.us, // Phone temporarily removed
   address: {
     "@type": "PostalAddress",
     addressLocality: siteConfig.contact.address.city,
     addressCountry: siteConfig.contact.address.country,
   },
-  sameAs: [
-    siteConfig.social.twitter,
-    siteConfig.social.linkedin,
-    siteConfig.social.github,
-    siteConfig.social.youtube,
-  ],
+  // Social media links temporarily hidden from SEO
+  // sameAs: [
+  //   siteConfig.social.twitter,
+  //   siteConfig.social.linkedin,
+  //   siteConfig.social.github,
+  //   siteConfig.social.youtube,
+  // ],
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: siteConfig.contact.phone.us,
+      // telephone: siteConfig.contact.phone.us, // Phone temporarily removed
       contactType: "sales",
       areaServed: ["US", "CA", "GB", "EU", "AE"],
       availableLanguage: ["English"],
@@ -171,7 +172,7 @@ export const professionalServiceSchema = {
   description:
     "Professional MVP development and custom software solutions for startups and businesses. We build web apps, mobile apps, and AI-powered solutions.",
   priceRange: "$$$",
-  telephone: siteConfig.contact.phone.us,
+  // telephone: siteConfig.contact.phone.us, // Phone temporarily removed
   email: siteConfig.contact.email,
   address: {
     "@type": "PostalAddress",
@@ -255,11 +256,12 @@ export const professionalServiceSchema = {
         "Builder AI delivered exactly what I envisioned. My gym now runs smoothly with a custom system that does everything I need.",
     },
   ],
-  sameAs: [
-    siteConfig.social.twitter,
-    siteConfig.social.linkedin,
-    siteConfig.social.github,
-  ],
+  // Social media links temporarily hidden from SEO
+  // sameAs: [
+  //   siteConfig.social.twitter,
+  //   siteConfig.social.linkedin,
+  //   siteConfig.social.github,
+  // ],
 };
 
 // Helper function to generate page-specific metadata

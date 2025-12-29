@@ -45,7 +45,6 @@ export const footerNavigation = {
   ],
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/team" },
     { label: "Our Process", href: "/process" },
     { label: "Careers", href: "/careers" },
   ],

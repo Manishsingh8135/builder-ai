@@ -7,10 +7,11 @@ export const siteConfig = {
     email: "hello@builder-ai.dev",
     salesEmail: "sales@builder-ai.dev",
     supportEmail: "support@builder-ai.dev",
-    phone: {
-      us: "+1 (555) 123-4567",
-      uk: "+44 20 1234 5678",
-    },
+    // Phone numbers temporarily removed
+    // phone: {
+    //   us: "+1 (555) 123-4567",
+    //   uk: "+44 20 1234 5678",
+    // },
     address: {
       street: "",
       city: "Remote",

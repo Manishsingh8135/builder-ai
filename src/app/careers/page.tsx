@@ -144,8 +144,8 @@ export default function CareersPage() {
               </p>
               <p className="text-sm text-muted-foreground">
                 Send your resume to{" "}
-                <a href="mailto:careers@company.com" className="text-primary hover:underline">
-                  careers@company.com
+                <a href="mailto:hello@builder-ai.dev" className="text-primary hover:underline">
+                  hello@builder-ai.dev
                 </a>{" "}
                 and we&apos;ll keep you in mind.
               </p>

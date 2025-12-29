@@ -79,7 +79,7 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Email *
                       </label>
-                      <Input type="email" placeholder="you@company.com" required />
+                      <Input type="email" placeholder="your@email.com" required />
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -156,6 +156,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Phone contact temporarily hidden
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4 shrink-0">
                     <Phone className="h-6 w-6 text-primary" />
@@ -184,6 +185,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+                */}
 
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4 shrink-0">

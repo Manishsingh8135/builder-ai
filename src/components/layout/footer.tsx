@@ -55,6 +55,7 @@ export function Footer() {
                     Email Us
                   </a>
                 </li>
+                {/* Social media links temporarily hidden
                 <li>
                   <a href={siteConfig.social.twitter} className="text-muted-foreground hover:text-foreground transition-colors">
                     Twitter / X
@@ -70,6 +71,7 @@ export function Footer() {
                     GitHub
                   </a>
                 </li>
+                */}
               </ul>
             </div>
           </div>

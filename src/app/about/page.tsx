@@ -60,12 +60,14 @@ export default function AboutPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Founded by engineers and consultants who saw how outdated processes were holding companies back, we combine deep technical expertise with real business understanding to deliver solutions that actually get used.
               </p>
+              {/* Team button temporarily hidden
               <Button asChild>
                 <Link href="/team">
                   Meet Our Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+              */}
             </div>
             <div className="grid grid-cols-2 gap-6">
               {companyStats.map((stat) => (
@@ -107,6 +109,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Leadership Team section temporarily hidden
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -143,6 +146,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-20 lg:py-32 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
