@@ -40,6 +40,7 @@ export function HeroV2() {
       {/* Animated gradient background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] opacity-20" />
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -52,10 +53,22 @@ export function HeroV2() {
           }}
           className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-[120px] opacity-50"
         />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-[120px] opacity-40"
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text Content */}
           <motion.div 
             style={{ y, opacity }} 
@@ -67,7 +80,7 @@ export function HeroV2() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-sm font-semibold text-primary backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold text-primary backdrop-blur-sm shadow-sm hover:bg-primary/15 transition-colors cursor-default">
                 <motion.span
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -83,7 +96,7 @@ export function HeroV2() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-8 text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1]"
+              className="mt-8 text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] drop-shadow-sm"
             >
               <span className="block text-foreground">Build Your</span>
               <span className="block mt-2 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">
@@ -96,7 +109,7 @@ export function HeroV2() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-xl text-muted-foreground leading-relaxed"
+              className="mt-6 text-xl text-muted-foreground leading-relaxed max-w-lg"
             >
               We turn your startup ideas into{" "}
               <span className="text-foreground font-semibold">production-ready MVPs</span> in weeks.
@@ -112,7 +125,7 @@ export function HeroV2() {
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto h-14 px-8 text-lg font-semibold rounded-2xl bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
+                className="w-full sm:w-auto h-14 px-8 text-lg font-semibold rounded-full bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
                 asChild
               >
                 <Link href="/schedule">
@@ -123,7 +136,7 @@ export function HeroV2() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto h-14 px-8 text-lg font-semibold rounded-2xl border-2"
+                className="w-full sm:w-auto h-14 px-8 text-lg font-semibold rounded-full border-2 hover:bg-muted/50 backdrop-blur-sm transition-all"
                 asChild
               >
                 <Link href="/case-studies">View Our Work</Link>
@@ -153,14 +166,14 @@ export function HeroV2() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[600px] flex items-center justify-center"
+            className="relative lg:h-[650px] flex items-center justify-center"
           >
-            <div className="relative w-full aspect-video max-w-[700px] group">
+            <div className="relative w-full aspect-video max-w-[700px] group perspective-1000">
               {/* Abstract Background Shapes */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-[3rem] rotate-3 blur-3xl opacity-40 transition-all duration-500 group-hover:rotate-6 group-hover:opacity-60" />
               
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-card/50 backdrop-blur-xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-primary/20">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-card/30 backdrop-blur-xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-primary/20">
                 {heroImages.map((src, index) => (
                   <motion.div
                     key={src}
@@ -176,11 +189,11 @@ export function HeroV2() {
                       src={src}
                       alt={`Project screenshot ${index + 1}`}
                       fill
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-700"
                       priority={index === 0}
                     />
                     {/* Gradient Overlay for better text contrast if needed, mostly for bottom fade */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60" />
                   </motion.div>
                 ))}
               </div>
@@ -189,32 +202,35 @@ export function HeroV2() {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-8 bottom-20 p-4 bg-card/90 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl max-w-[200px] hidden md:block"
+                className="absolute -left-8 bottom-20 p-5 bg-card/80 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl max-w-[220px] hidden md:block"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-green-500" />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-green-500" />
                   </div>
-                  <span className="font-semibold text-sm">Results Driven</span>
+                  <span className="font-bold text-sm">Results Driven</span>
                 </div>
-                <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
-                    className="h-full bg-green-500" 
-                  />
+                <div className="space-y-2">
+                    <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
+                    <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        className="h-full bg-green-500" 
+                    />
+                    </div>
+                    <p className="text-xs text-muted-foreground"> consistently exceeding targets</p>
                 </div>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, 20, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -right-8 top-20 p-4 bg-card/90 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl hidden md:block"
+                className="absolute -right-8 top-20 p-5 bg-card/80 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl hidden md:block"
               >
                 <div className="text-center">
-                  <span className="block text-2xl font-bold gradient-text">100%</span>
-                  <span className="text-xs text-muted-foreground">Client Satisfaction</span>
+                  <span className="block text-3xl font-black gradient-text mb-1">100%</span>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Client Satisfaction</span>
                 </div>
               </motion.div>
             </div>
@@ -232,9 +248,9 @@ export function HeroV2() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-muted-foreground"
+          className="flex flex-col items-center gap-2 text-muted-foreground/60 hover:text-foreground transition-colors cursor-pointer"
         >
-          <span className="text-sm font-medium">Scroll to explore</span>
+          <span className="text-xs font-medium uppercase tracking-widest">Scroll to explore</span>
           <ChevronDown className="w-5 h-5" />
         </motion.div>
       </motion.div>

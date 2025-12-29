@@ -53,15 +53,15 @@ export function TestimonialsV2() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6"
+            className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6 border border-accent/20"
           >
             Testimonials
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
-            Real feedback from real businesses we've helped grow
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Real feedback from real businesses we've helped grow. Your success is our reputation.
           </p>
         </motion.div>
 
@@ -75,39 +75,44 @@ export function TestimonialsV2() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group"
             >
-              <div className="h-full p-8 lg:p-10 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+              <div className="h-full p-8 lg:p-10 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 flex flex-col relative overflow-hidden">
+                {/* Gradient Blob for Card */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
                 {/* Rating */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-6 relative z-10">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400 drop-shadow-sm"
                     />
                   ))}
                 </div>
 
                 {/* Quote icon */}
-                <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                <div className="relative z-10">
+                    <Quote className="w-10 h-10 text-primary/20 mb-6" />
+                </div>
 
                 {/* Quote text */}
-                <p className="text-lg text-foreground leading-relaxed mb-8">
+                <p className="text-lg text-foreground leading-relaxed mb-8 flex-grow relative z-10 italic">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Author */}
-                <div className="pt-6 border-t border-border">
+                <div className="pt-6 border-t border-border/50 relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg shadow-md ring-2 ring-background">
                       {testimonial.author.charAt(0)}
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">
+                      <div className="font-bold text-foreground">
                         {testimonial.author}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-primary font-medium">
                         {testimonial.role}, {testimonial.company}
                       </div>
-                      <div className="text-xs text-muted-foreground/70 mt-0.5">
+                      <div className="text-xs text-muted-foreground mt-0.5">
                         {testimonial.location}
                       </div>
                     </div>

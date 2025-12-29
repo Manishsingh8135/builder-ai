@@ -59,10 +59,11 @@ export function CaseStudiesV2() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-40 bg-card relative overflow-hidden">
+    <section className="py-24 lg:py-40 bg-background relative overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
-
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      
       <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section header */}
         <motion.div
@@ -76,21 +77,21 @@ export function CaseStudiesV2() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6"
+              className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20"
             >
               Our Work
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
               Real <span className="gradient-text">Results</span>
             </h2>
-            <p className="mt-4 text-xl text-muted-foreground max-w-xl">
-              See how we've helped businesses transform their operations
+            <p className="mt-4 text-xl text-muted-foreground max-w-xl leading-relaxed">
+              See how we've helped businesses transform their operations and achieve massive growth.
             </p>
           </div>
           <Button
             variant="outline"
             size="lg"
-            className="mt-6 lg:mt-0 rounded-xl"
+            className="mt-8 lg:mt-0 rounded-full px-8 h-12 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
             asChild
           >
             <Link href="/case-studies">
@@ -111,44 +112,48 @@ export function CaseStudiesV2() {
             >
               <Link
                 href={study.href}
-                className="group block h-full rounded-3xl bg-background border border-border hover:border-primary/30 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+                className="group block h-full rounded-3xl bg-card border border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 flex flex-col"
               >
                 {/* Header with image */}
-                <div className="h-48 md:h-56 relative overflow-hidden">
+                <div className="h-64 relative overflow-hidden">
                   <img
                     src={study.image}
                     alt={study.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/30" />
-                  <div className="absolute bottom-4 left-6 right-6">
-                    <span className="inline-block px-3 py-1 text-xs font-medium text-white/90 bg-white/20 backdrop-blur-sm rounded-full">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80" />
+                  
+                  <div className="absolute top-4 left-6">
+                    <span className="inline-block px-3 py-1.5 text-xs font-semibold text-white bg-black/50 backdrop-blur-md rounded-full border border-white/10">
                       {study.category}
                     </span>
                   </div>
-                  <ArrowUpRight className="absolute top-4 right-4 w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  
+                  <ArrowUpRight className="absolute top-4 right-6 w-10 h-10 p-2 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300" />
                 </div>
 
                 {/* Content */}
-                <div className="p-6 lg:p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {study.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {study.location}
-                  </p>
-                  <p className="text-muted-foreground mb-6">
-                    {study.description}
-                  </p>
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-sm font-medium text-primary/80 mb-4">
+                      {study.location}
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {study.description}
+                    </p>
+                  </div>
 
                   {/* Results */}
-                  <div className="flex gap-6 mb-6">
+                  <div className="grid grid-cols-2 gap-4 mb-8 p-4 rounded-2xl bg-muted/50 border border-border/50">
                     {study.results.map((result) => (
                       <div key={result.label}>
                         <div className="text-2xl font-bold gradient-text">
                           {result.metric}
                         </div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                           {result.label}
                         </div>
                       </div>
@@ -156,14 +161,18 @@ export function CaseStudiesV2() {
                   </div>
 
                   {/* Quote */}
-                  <div className="pt-6 border-t border-border">
-                    <Quote className="w-5 h-5 text-primary/40 mb-2" />
-                    <p className="text-sm italic text-muted-foreground mb-2">
-                      "{study.quote}"
-                    </p>
-                    <p className="text-sm font-medium text-foreground">
-                      — {study.author}
-                    </p>
+                  <div className="mt-auto pt-6 border-t border-border/50">
+                    <div className="flex gap-3">
+                      <Quote className="w-8 h-8 text-primary/20 shrink-0" />
+                      <div>
+                        <p className="text-sm italic text-muted-foreground mb-3 leading-relaxed">
+                          "{study.quote}"
+                        </p>
+                        <p className="text-sm font-semibold text-foreground">
+                          — {study.author}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>

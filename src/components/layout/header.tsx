@@ -33,14 +33,26 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
         isScrolled
-          ? "bg-background/80 backdrop-blur-lg shadow-sm border-b border-border"
-          : "bg-transparent"
+          ? "py-4 px-4 sm:px-6 lg:px-8"
+          : "py-0"
       )}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <nav 
+        className={cn(
+          "mx-auto transition-all duration-500 relative",
+          isScrolled 
+            ? "max-w-5xl bg-background/70 backdrop-blur-xl border border-white/10 shadow-2xl shadow-primary/5 rounded-full px-6 py-2" 
+            : "max-w-7xl px-4 sm:px-6 lg:px-8 py-4 bg-transparent"
+        )}
+      >
+        {/* Gradient Shadow Effect for Scrolled State */}
+        {isScrolled && (
+          <div className="absolute -z-10 inset-0 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-xl opacity-50" />
+        )}
+
+        <div className="flex items-center justify-between h-12 lg:h-14">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.svg"

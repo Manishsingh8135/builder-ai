@@ -44,7 +44,8 @@ export function ProcessV2() {
   return (
     <section className="py-24 lg:py-40 bg-card relative overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.02)_1px,transparent_1px)] bg-size-[60px_60px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section header */}
@@ -58,22 +59,22 @@ export function ProcessV2() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6"
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20"
           >
             How We Work
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
             From Idea to <span className="gradient-text">Launch</span>
           </h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
-            A proven process that delivers results, every time
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            A proven process that delivers results, every time. simple, transparent, and effective.
           </p>
         </motion.div>
 
         {/* Process steps */}
         <div className="relative">
           {/* Connection line for desktop */}
-          <div className="hidden lg:block absolute top-24 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-20" />
+          <div className="hidden lg:block absolute top-24 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30" />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             {steps.map((step, index) => (
@@ -85,29 +86,32 @@ export function ProcessV2() {
                 className="relative group"
               >
                 {/* Step card */}
-                <div className="h-full p-8 rounded-3xl bg-background border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+                <div className="h-full p-8 rounded-3xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative z-10">
                   {/* Icon with number */}
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="relative mb-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform duration-500">
                       <step.icon className="w-8 h-8 text-white" />
                     </div>
-                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-xs font-bold text-primary">
+                    <span className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-background border-4 border-card flex items-center justify-center text-sm font-bold text-primary shadow-sm">
                       {step.number}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
                     {step.description}
                   </p>
 
                   {/* Duration badge */}
-                  <span className="inline-block px-3 py-1.5 text-sm rounded-full bg-muted text-muted-foreground font-medium">
-                    {step.duration}
-                  </span>
+                  <div className="pt-4 border-t border-border/50">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-full bg-primary/10 text-primary">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"/>
+                        {step.duration}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Arrow for mobile/tablet */}
@@ -128,12 +132,12 @@ export function ProcessV2() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-16 lg:mt-24 text-center"
         >
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             Ready to start your project?
           </p>
           <Button
             size="lg"
-            className="h-14 px-8 text-lg font-semibold rounded-2xl bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
+            className="h-14 px-8 text-lg font-semibold rounded-full bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
             asChild
           >
             <Link href="/schedule">

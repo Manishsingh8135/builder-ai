@@ -48,6 +48,7 @@ export function ServicesV2() {
     <section className="py-24 lg:py-40 bg-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]" />
 
       <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section header */}
@@ -61,15 +62,16 @@ export function ServicesV2() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6"
+            className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6 border border-accent/20"
           >
             Our Services
           </motion.span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
             What We <span className="gradient-text">Build</span>
           </h2>
-          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
-            End-to-end development solutions to bring your vision to life
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            End-to-end development solutions to bring your vision to life.
+            We craft digital experiences that matter.
           </p>
         </motion.div>
 
@@ -84,12 +86,15 @@ export function ServicesV2() {
             >
               <Link
                 href={service.href}
-                className="group block h-full p-8 lg:p-10 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+                className="group block h-full p-8 lg:p-10 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden"
               >
-                <div className="flex flex-col h-full">
+                {/* Hover Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative flex flex-col h-full z-10">
                   {/* Icon */}
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-primary/20`}
                   >
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
@@ -100,16 +105,16 @@ export function ServicesV2() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-lg text-muted-foreground mb-6 flex-grow">
+                  <p className="text-lg text-muted-foreground mb-8 flex-grow leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {service.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-3 py-1.5 text-sm rounded-full bg-muted text-muted-foreground"
+                        className="px-3 py-1.5 text-sm font-medium rounded-full bg-muted/50 border border-border/50 text-muted-foreground group-hover:border-primary/20 group-hover:bg-primary/5 group-hover:text-primary/80 transition-colors"
                       >
                         {feature}
                       </span>
