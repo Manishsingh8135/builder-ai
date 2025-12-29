@@ -5,11 +5,23 @@ import { jobListings, benefits, cultureValues } from "@/data/careers";
 import { Icon } from "@/components/common/icon";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Careers",
-  description: "Join our team and help businesses transform through AI automation and custom software.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Careers | Join Builder AI - Remote Developer Jobs",
+  description:
+    "Join Builder AI and help startups build amazing products. Remote-first company with flexible hours, competitive pay, and cutting-edge projects. View open positions in development, design, and more.",
+  keywords: [
+    "remote developer jobs",
+    "software developer careers",
+    "React developer jobs",
+    "Node.js developer positions",
+    "startup jobs",
+    "remote tech jobs",
+    "AI development careers",
+  ],
+  path: "/careers",
+});
 
 export default function CareersPage() {
   const activeJobs = jobListings.filter((job) => job.active);

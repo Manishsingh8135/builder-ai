@@ -21,9 +21,43 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
+  
+  const siteUrl = "https://builder-ai.dev";
+  const pageUrl = `${siteUrl}/blog/${slug}`;
+  const author = teamMembers.find((m) => m.id === post.author);
+  
   return {
-    title: post.title,
+    title: `${post.title} | Builder AI Blog`,
     description: post.excerpt,
+    keywords: [
+      ...post.tags.map(t => t.toLowerCase()),
+      post.category.toLowerCase(),
+      "software development",
+      "startup tips",
+    ],
+    authors: [{ name: author?.name || "Builder AI Team" }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: pageUrl,
+      type: "article",
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+      authors: [author?.name || "Builder AI Team"],
+      tags: post.tags,
+      images: post.image 
+        ? [{ url: post.image, width: 1200, height: 630, alt: post.title }]
+        : [{ url: `${siteUrl}/images/og_image.jpeg`, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : [`${siteUrl}/images/og_image.jpeg`],
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 

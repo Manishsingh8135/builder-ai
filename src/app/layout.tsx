@@ -3,8 +3,13 @@ import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { siteConfig } from "@/data/site-config";
 import { FluidCursor } from "@/components/ui/fluid-cursor";
+import {
+  defaultSEO,
+  organizationSchema,
+  websiteSchema,
+  professionalServiceSchema,
+} from "@/lib/seo-config";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-sans",
@@ -17,21 +22,7 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: `${siteConfig.name} | ${siteConfig.seo.title}`,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [
-    "AI automation",
-    "business automation",
-    "custom software",
-    "web development",
-    "mobile apps",
-    "digital transformation",
-  ],
-};
+export const metadata: Metadata = defaultSEO;
 
 export default function RootLayout({
   children,
@@ -40,6 +31,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceSchema),
+          }}
+        />
+      </head>
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable} font-sans antialiased`}>
         <Header />
         <FluidCursor />

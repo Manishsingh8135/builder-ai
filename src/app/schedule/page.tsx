@@ -1,11 +1,22 @@
 import { Metadata } from "next";
 import { Calendar, Clock, Video, CheckCircle } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Schedule a Meeting",
-  description: "Book a free consultation call to discuss your AI automation or software project.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Schedule a Free Consultation | Book MVP Development Call",
+  description:
+    "Book a free 30-minute discovery call with Builder AI. Discuss your MVP idea, get expert advice, and learn how we can help launch your product in weeks. No obligation, flexible scheduling across timezones.",
+  keywords: [
+    "schedule MVP consultation",
+    "book software development call",
+    "free startup consultation",
+    "MVP development meeting",
+    "software project discovery call",
+    "hire developers consultation",
+  ],
+  path: "/schedule",
+});
 
 export default function SchedulePage() {
   return (

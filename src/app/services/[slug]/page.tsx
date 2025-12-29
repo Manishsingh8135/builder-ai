@@ -23,9 +23,37 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
+  
+  const siteUrl = "https://builder-ai.dev";
+  const pageUrl = `${siteUrl}/services/${slug}`;
+  
   return {
-    title: service.title,
-    description: service.description,
+    title: `${service.title} | Professional ${service.shortTitle} Services`,
+    description: `${service.description} Launch in ${service.benefits[0]?.metric || "weeks"}. Get ${service.benefits[1]?.metric || "significant"} ${service.benefits[1]?.label?.toLowerCase() || "savings"}. Technologies: ${service.technologies.slice(0, 4).join(", ")}.`,
+    keywords: [
+      service.title.toLowerCase(),
+      `${service.shortTitle.toLowerCase()} services`,
+      `${service.shortTitle.toLowerCase()} company`,
+      `hire ${service.shortTitle.toLowerCase()} developers`,
+      ...service.useCases.slice(0, 3).map(uc => uc.toLowerCase()),
+      ...service.technologies.map(t => `${t} development`),
+    ],
+    openGraph: {
+      title: `${service.title} | Builder AI`,
+      description: service.description,
+      url: pageUrl,
+      type: "website",
+      images: [{ url: `${siteUrl}/images/og_image.jpeg`, width: 1200, height: 630, alt: service.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | Builder AI`,
+      description: service.tagline,
+      images: [`${siteUrl}/images/og_image.jpeg`],
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 

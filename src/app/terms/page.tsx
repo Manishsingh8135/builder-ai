@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/data/site-config";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "Terms and conditions for using our AI automation and software development services.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Terms of Service | Builder AI Agreement",
+  description:
+    "Read Builder AI's terms of service. Understand our service agreement, intellectual property rights, payment terms, and project guidelines for software development services.",
+  keywords: [
+    "terms of service",
+    "software development agreement",
+    "Builder AI terms",
+    "service agreement",
+  ],
+  path: "/terms",
+  noIndex: false,
+});
 
 export default function TermsPage() {
   return (

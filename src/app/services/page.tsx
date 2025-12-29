@@ -4,11 +4,24 @@ import { ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 import { Icon } from "@/components/common/icon";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata, siteUrl } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description: "AI automation, web applications, mobile apps, and internal tools for medium-sized businesses.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Our Services | MVP Development, Web Apps, Mobile Apps & AI Integration",
+  description:
+    "Explore Builder AI's services: MVP development in 4-8 weeks, custom web applications, mobile app development (iOS & Android), and AI integration. Transform your business with our expert development team.",
+  keywords: [
+    "MVP development services",
+    "custom web application development",
+    "mobile app development services",
+    "AI integration services",
+    "SaaS development company",
+    "React development services",
+    "Node.js development",
+    "startup development services",
+  ],
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

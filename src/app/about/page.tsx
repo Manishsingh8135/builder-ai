@@ -7,11 +7,23 @@ import { companyStats } from "@/data/stats";
 import { Icon } from "@/components/common/icon";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about our mission to help businesses transform through AI automation and custom software.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "About Builder AI | MVP Development Experts & Startup Partners",
+  description:
+    "Meet the team behind Builder AI. We help startups and businesses launch MVPs in weeks, not months. Serving clients in USA, Canada, Europe & Middle East. 50+ projects delivered with 95% client satisfaction.",
+  keywords: [
+    "about Builder AI",
+    "MVP development team",
+    "startup development company",
+    "software development agency",
+    "tech startup partners",
+    "remote development team",
+    "offshore development company",
+  ],
+  path: "/about",
+});
 
 export default function AboutPage() {
   const leadership = teamMembers.filter((m) => m.leadership);

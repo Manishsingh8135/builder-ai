@@ -2,11 +2,23 @@ import { Metadata } from "next";
 import { Linkedin, Twitter } from "lucide-react";
 import { teamMembers } from "@/data/team";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Our Team",
-  description: "Meet the talented team behind our AI automation and software development solutions.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Our Team | Meet the MVP Development Experts",
+  description:
+    "Meet the Builder AI team - experienced developers, designers, and strategists who build successful MVPs. Remote-first team serving clients globally with expertise in React, Node.js, AI, and more.",
+  keywords: [
+    "MVP development team",
+    "software developers",
+    "startup development experts",
+    "remote development team",
+    "React developers",
+    "Node.js developers",
+    "AI specialists",
+  ],
+  path: "/team",
+});
 
 export default function TeamPage() {
   const leadership = teamMembers.filter((m) => m.leadership);

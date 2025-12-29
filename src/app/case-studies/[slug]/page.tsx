@@ -21,9 +21,40 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const { slug } = await params;
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) return { title: "Case Study Not Found" };
+  
+  const siteUrl = "https://builder-ai.dev";
+  const pageUrl = `${siteUrl}/case-studies/${slug}`;
+  const resultsText = study.results.slice(0, 2).map(r => `${r.metric} ${r.label}`).join(", ");
+  
   return {
-    title: study.title,
-    description: study.challenge,
+    title: `${study.title} | ${study.industry} Case Study`,
+    description: `${study.challenge.slice(0, 120)}... Results: ${resultsText}. See how Builder AI helped ${study.client} achieve success.`,
+    keywords: [
+      `${study.industry.toLowerCase()} software development`,
+      `${study.industry.toLowerCase()} case study`,
+      study.service.replace("-", " "),
+      ...study.technologies.map(t => t.toLowerCase()),
+      "client success story",
+      "software development results",
+    ],
+    openGraph: {
+      title: `${study.title} | Builder AI Case Study`,
+      description: study.challenge,
+      url: pageUrl,
+      type: "article",
+      images: study.images?.[0] 
+        ? [{ url: study.images[0], width: 1200, height: 630, alt: study.title }]
+        : [{ url: `${siteUrl}/images/og_image.jpeg`, width: 1200, height: 630, alt: study.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${study.title} | Builder AI`,
+      description: `${study.challenge.slice(0, 100)}...`,
+      images: study.images?.[0] ? [study.images[0]] : [`${siteUrl}/images/og_image.jpeg`],
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 

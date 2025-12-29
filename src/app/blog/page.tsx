@@ -5,11 +5,24 @@ import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { teamMembers } from "@/data/team";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Insights on AI automation, software development, and digital transformation.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Blog | MVP Development Tips, Startup Insights & Tech Guides",
+  description:
+    "Expert insights on MVP development, startup strategies, AI automation, and software development best practices. Learn how to build and scale your digital product from the Builder AI team.",
+  keywords: [
+    "MVP development blog",
+    "startup development tips",
+    "AI automation insights",
+    "software development blog",
+    "tech startup guides",
+    "SaaS development articles",
+    "web development best practices",
+    "mobile app development tips",
+  ],
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const featuredPosts = blogPosts.filter((p) => p.featured);

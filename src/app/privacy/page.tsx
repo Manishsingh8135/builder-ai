@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/data/site-config";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Privacy policy for our AI automation and software development services.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Privacy Policy | Builder AI Data Protection",
+  description:
+    "Read Builder AI's privacy policy. Learn how we collect, use, and protect your personal information. GDPR compliant. Your data security is our priority.",
+  keywords: [
+    "privacy policy",
+    "data protection",
+    "GDPR compliance",
+    "Builder AI privacy",
+  ],
+  path: "/privacy",
+  noIndex: false,
+});
 
 export default function PrivacyPage() {
   return (

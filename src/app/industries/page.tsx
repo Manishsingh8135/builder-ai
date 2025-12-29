@@ -4,11 +4,24 @@ import { ArrowRight } from "lucide-react";
 import { industries } from "@/data/industries";
 import { Icon } from "@/components/common/icon";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Industries",
-  description: "AI automation and custom software solutions for healthcare, finance, retail, manufacturing, and more.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Industries We Serve | Fitness, E-commerce, Travel & More",
+  description:
+    "Builder AI builds custom software for startups, fitness & wellness, e-commerce, travel & tourism, professional services, and agriculture. Industry-specific solutions with proven results.",
+  keywords: [
+    "gym management software",
+    "fitness app development",
+    "e-commerce development",
+    "travel app development",
+    "startup MVP development",
+    "professional services software",
+    "farm e-commerce website",
+    "industry-specific software",
+  ],
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (

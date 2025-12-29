@@ -2,11 +2,23 @@ import { Metadata } from "next";
 import { processSteps, processHighlights } from "@/data/process";
 import { Icon } from "@/components/common/icon";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Our Process",
-  description: "Learn about our proven methodology for delivering successful AI automation and software projects.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Our Process | How We Build MVPs in 4-8 Weeks",
+  description:
+    "Learn how Builder AI delivers MVPs in 4-8 weeks. Our 5-step process: Discovery, Design, Development, Testing, and Launch. Transparent communication, weekly updates, and guaranteed quality.",
+  keywords: [
+    "MVP development process",
+    "software development methodology",
+    "agile development process",
+    "how to build MVP",
+    "startup development timeline",
+    "product development stages",
+    "software project management",
+  ],
+  path: "/process",
+});
 
 export default function ProcessPage() {
   return (
