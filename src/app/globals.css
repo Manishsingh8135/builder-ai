@@ -99,6 +99,17 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold tracking-tight;
   }
+  
+  /* Cursor pointer for all clickable elements */
+  a, button, [role="button"], [type="button"], [type="submit"], [type="reset"],
+  label[for], select, summary, [tabindex]:not([tabindex="-1"]) {
+    @apply cursor-pointer;
+  }
+  
+  /* Ensure disabled elements don't show pointer */
+  button:disabled, [disabled] {
+    @apply cursor-not-allowed;
+  }
 }
 
 @layer utilities {
@@ -124,5 +135,77 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
+  }
+
+  /* Manual Typography Prose Class */
+  .custom-prose {
+    @apply text-lg text-muted-foreground leading-relaxed;
+  }
+
+  .custom-prose > * + * {
+    @apply mt-6;
+  }
+
+  .custom-prose h1, 
+  .custom-prose h2, 
+  .custom-prose h3, 
+  .custom-prose h4 {
+    @apply font-bold text-foreground tracking-tight scroll-mt-20;
+  }
+
+  .custom-prose h1 {
+    @apply text-4xl mt-12 mb-6;
+  }
+  
+  .custom-prose h2 {
+    @apply text-3xl mt-12 mb-6 pb-2 border-b border-border/50;
+  }
+  
+  .custom-prose h3 {
+    @apply text-2xl mt-8 mb-4;
+  }
+
+  .custom-prose p {
+    @apply mb-6 leading-7 text-pretty;
+  }
+
+  .custom-prose ul {
+    @apply list-disc list-outside ml-6 mb-6 space-y-2;
+  }
+  
+  .custom-prose ol {
+    @apply list-decimal list-outside ml-6 mb-6 space-y-2;
+  }
+
+  .custom-prose li {
+    @apply pl-2 marker:text-primary;
+  }
+
+  .custom-prose blockquote {
+    @apply border-l-4 border-primary pl-6 py-2 italic text-foreground my-8 bg-muted/10 rounded-r-lg;
+  }
+
+  .custom-prose code {
+    @apply font-mono text-sm bg-muted/50 text-primary px-1.5 py-0.5 rounded border border-border/50;
+  }
+  
+  .custom-prose pre {
+    @apply bg-card p-4 rounded-lg overflow-x-auto border border-border my-6;
+  }
+  
+  .custom-prose pre code {
+    @apply bg-transparent p-0 text-foreground border-none;
+  }
+
+  .custom-prose a {
+    @apply text-primary underline-offset-4 hover:underline font-medium;
+  }
+  
+  .custom-prose strong {
+    @apply text-foreground font-bold;
+  }
+  
+  .custom-prose img {
+    @apply rounded-2xl border border-border/50 w-full my-8;
   }
 }

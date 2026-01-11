@@ -27,6 +27,24 @@ export const mainNavigation = [
         description: "Add AI capabilities to your product",
         icon: "Bot",
       },
+      {
+        label: "SEO Services",
+        href: "/services/seo-services",
+        description: "Rank higher in search results",
+        icon: "Search",
+      },
+      {
+        label: "AIO - AI Optimization",
+        href: "/services/aio-services",
+        description: "Get found by AI assistants",
+        icon: "Sparkles",
+      },
+      {
+        label: "Meta Ads",
+        href: "/services/meta-ads",
+        description: "Facebook & Instagram advertising",
+        icon: "Megaphone",
+      },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
@@ -42,6 +60,11 @@ export const footerNavigation = {
     { label: "Web Applications", href: "/services/web-applications" },
     { label: "Mobile Apps", href: "/services/mobile-applications" },
     { label: "AI Integration", href: "/services/ai-integration" },
+  ],
+  digitalMarketing: [
+    { label: "SEO Services", href: "/services/seo-services" },
+    { label: "AIO - AI Optimization", href: "/services/aio-services" },
+    { label: "Facebook & Meta Ads", href: "/services/meta-ads" },
   ],
   company: [
     { label: "About Us", href: "/about" },

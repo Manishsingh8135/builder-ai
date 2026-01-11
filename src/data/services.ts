@@ -17,6 +17,8 @@ export interface Service {
   tagline: string;
   description: string;
   icon: string;
+  image?: string;
+  category: "primary" | "digital-marketing";
   features: ServiceFeature[];
   benefits: ServiceBenefit[];
   useCases: string[];
@@ -30,9 +32,11 @@ export const services: Service[] = [
     title: "MVP Development",
     shortTitle: "MVP Development",
     tagline: "Launch your startup idea in weeks, not months",
+    category: "primary",
     description:
       "Turn your vision into a working product fast. We specialize in building MVPs that validate your idea, attract investors, and get real users—all while keeping costs low and speed high.",
     icon: "Rocket",
+    image: "/images/services/mvp-dev.png",
     features: [
       {
         title: "Rapid Prototyping",
@@ -94,9 +98,11 @@ export const services: Service[] = [
     title: "Custom Web Applications",
     shortTitle: "Web Apps",
     tagline: "Powerful web applications that scale with your business",
+    category: "primary",
     description:
       "We build modern, responsive web applications that deliver exceptional user experiences. From customer portals to complex SaaS platforms, we create solutions that drive engagement and growth.",
     icon: "Globe",
+    image: "/images/services/custom-webdev.png",
     features: [
       {
         title: "Custom SaaS Platforms",
@@ -158,9 +164,11 @@ export const services: Service[] = [
     title: "Mobile App Development",
     shortTitle: "Mobile Apps",
     tagline: "Native and cross-platform apps your users will love",
+    category: "primary",
     description:
       "Reach your customers wherever they are with beautifully designed mobile applications. We build for iOS and Android, using the latest technologies to deliver fast, reliable, and engaging experiences.",
     icon: "Smartphone",
+    image: "/images/services/mobile-app-dev.png",
     features: [
       {
         title: "Cross-Platform Development",
@@ -222,9 +230,11 @@ export const services: Service[] = [
     title: "AI Integration & Automation",
     shortTitle: "AI Integration",
     tagline: "Supercharge your product with AI capabilities",
+    category: "primary",
     description:
       "Add powerful AI features to your existing product or new MVP. From chatbots to content generation, we integrate the latest AI technologies to give you a competitive edge.",
     icon: "Bot",
+    image: "/images/services/ai-integration.png",
     features: [
       {
         title: "AI Chatbots",
@@ -278,6 +288,201 @@ export const services: Service[] = [
       "Vercel AI SDK",
       "Pinecone",
       "Supabase",
+    ],
+  },
+  {
+    id: "seo-services",
+    slug: "seo-services",
+    title: "SEO Services",
+    shortTitle: "SEO",
+    tagline: "Rank higher, get found, grow organically",
+    category: "digital-marketing",
+    description:
+      "Dominate search results and drive organic traffic to your business. Our SEO services combine technical optimization, content strategy, and local SEO to help you rank for the keywords that matter most to your customers.",
+    icon: "Search",
+    features: [
+      {
+        title: "Technical SEO Audit",
+        description: "Complete site health analysis and fixes",
+        icon: "Settings",
+      },
+      {
+        title: "Keyword Research",
+        description: "Find high-intent keywords your customers search",
+        icon: "Target",
+      },
+      {
+        title: "On-Page Optimization",
+        description: "Meta tags, content, and structure optimization",
+        icon: "FileText",
+      },
+      {
+        title: "Local SEO",
+        description: "Google Business Profile & local rankings",
+        icon: "MapPin",
+      },
+      {
+        title: "Link Building",
+        description: "Quality backlinks to boost authority",
+        icon: "Link",
+      },
+      {
+        title: "Performance Tracking",
+        description: "Rankings, traffic, and conversion reports",
+        icon: "BarChart",
+      },
+    ],
+    benefits: [
+      { metric: "Top 10", label: "Search Rankings" },
+      { metric: "3x", label: "Organic Traffic" },
+      { metric: "50%", label: "Lower Ad Spend" },
+      { metric: "24/7", label: "Visibility" },
+    ],
+    useCases: [
+      "Local business visibility",
+      "E-commerce product rankings",
+      "Service-based businesses",
+      "Blog & content marketing",
+      "Multi-location businesses",
+      "New website launches",
+    ],
+    technologies: [
+      "Google Search Console",
+      "Ahrefs",
+      "SEMrush",
+      "Yoast SEO",
+      "Google Analytics",
+      "Screaming Frog",
+    ],
+  },
+  {
+    id: "aio-services",
+    slug: "aio-services",
+    title: "AIO - AI Search Optimization",
+    shortTitle: "AIO",
+    tagline: "Get found by AI assistants and chatbots",
+    category: "digital-marketing",
+    description:
+      "The future of search is AI-powered. AIO (AI Search Optimization) ensures your business appears in AI assistant responses, chatbot recommendations, and voice search results. Stay ahead as customers increasingly use AI to find products and services.",
+    icon: "Sparkles",
+    features: [
+      {
+        title: "AI-Friendly Content",
+        description: "Structured content that AI can understand",
+        icon: "FileCode",
+      },
+      {
+        title: "Schema Markup",
+        description: "Rich data for AI comprehension",
+        icon: "Code",
+      },
+      {
+        title: "Voice Search Ready",
+        description: "Optimized for conversational queries",
+        icon: "Mic",
+      },
+      {
+        title: "Featured Snippets",
+        description: "Position zero optimization",
+        icon: "Award",
+      },
+      {
+        title: "Knowledge Graph",
+        description: "Entity optimization for AI understanding",
+        icon: "Brain",
+      },
+      {
+        title: "AI Response Monitoring",
+        description: "Track how AI tools reference your brand",
+        icon: "Eye",
+      },
+    ],
+    benefits: [
+      { metric: "Future", label: "Ready" },
+      { metric: "AI", label: "Visibility" },
+      { metric: "Voice", label: "Search Ready" },
+      { metric: "Ahead", label: "Of Competition" },
+    ],
+    useCases: [
+      "Local businesses",
+      "E-commerce stores",
+      "Professional services",
+      "Healthcare providers",
+      "Restaurants & hospitality",
+      "Any business wanting AI visibility",
+    ],
+    technologies: [
+      "Schema.org",
+      "JSON-LD",
+      "ChatGPT/Bing",
+      "Google SGE",
+      "Voice Assistants",
+      "Structured Data",
+    ],
+  },
+  {
+    id: "meta-ads",
+    slug: "meta-ads",
+    title: "Facebook & Meta Ads",
+    shortTitle: "Meta Ads",
+    tagline: "Reach your perfect customers on Facebook & Instagram",
+    category: "digital-marketing",
+    description:
+      "Harness the power of Meta's advertising platform to reach billions of users on Facebook and Instagram. Our data-driven approach ensures your ads reach the right audience, with the right message, at the right time—maximizing ROI on every dollar spent.",
+    icon: "Megaphone",
+    features: [
+      {
+        title: "Audience Targeting",
+        description: "Precision targeting by interests, behaviors, demographics",
+        icon: "Users",
+      },
+      {
+        title: "Creative Design",
+        description: "Scroll-stopping ad creatives that convert",
+        icon: "Image",
+      },
+      {
+        title: "Retargeting Campaigns",
+        description: "Re-engage visitors who didn't convert",
+        icon: "RefreshCw",
+      },
+      {
+        title: "Lookalike Audiences",
+        description: "Find new customers similar to your best ones",
+        icon: "UserPlus",
+      },
+      {
+        title: "A/B Testing",
+        description: "Continuous optimization for best results",
+        icon: "FlaskConical",
+      },
+      {
+        title: "ROI Tracking",
+        description: "Full funnel conversion tracking",
+        icon: "TrendingUp",
+      },
+    ],
+    benefits: [
+      { metric: "3B+", label: "Users Reach" },
+      { metric: "5x", label: "ROAS Average" },
+      { metric: "Precise", label: "Targeting" },
+      { metric: "Scalable", label: "Growth" },
+    ],
+    useCases: [
+      "E-commerce sales",
+      "Lead generation",
+      "Brand awareness",
+      "App installs",
+      "Local store traffic",
+      "Event promotions",
+    ],
+    technologies: [
+      "Meta Business Suite",
+      "Meta Pixel",
+      "Conversions API",
+      "Creative Hub",
+      "Ads Manager",
+      "Analytics",
     ],
   },
 ];

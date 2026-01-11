@@ -3,7 +3,6 @@ import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { FluidCursor } from "@/components/ui/fluid-cursor";
 import {
   defaultSEO,
   organizationSchema,
@@ -53,7 +52,6 @@ export default function RootLayout({
       </head>
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable} font-sans antialiased`}>
         <Header />
-        <FluidCursor />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

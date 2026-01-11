@@ -5,6 +5,7 @@ export interface Testimonial {
   role: string;
   company: string;
   image: string;
+  logo?: string;
   rating: number;
   featured: boolean;
 }
@@ -17,7 +18,8 @@ export const testimonials: Testimonial[] = [
     author: "Hipolito Rivera",
     role: "Owner",
     company: "R1P FITNESS",
-    image: "/images/testimonials/hipolito-rivera.jpg",
+    image: "/images/projects/r1pfitness/r1pfitness-owner.jpg",
+    logo: "/images/projects/r1pfitness/r1pfitness-logo.png",
     rating: 5,
     featured: true,
   },
@@ -28,30 +30,32 @@ export const testimonials: Testimonial[] = [
     author: "Shedder Jacques",
     role: "Owner",
     company: "Shedder's Healthcare",
-    image: "/images/testimonials/shedder-jacques.jpg",
+    image: "",
     rating: 5,
     featured: true,
   },
   {
     id: "testimonial-3",
     quote:
-      "The website captures the heart of our farm perfectly. Customers love being able to order online and learn about where their food comes from.",
+      "Builder AI didn't just build us a website - they launched our entire online business. From setting up every product to running our Facebook ads, they handled everything.",
     author: "Mike Quill",
     role: "Owner",
     company: "Little Tree Farm NS",
-    image: "/images/testimonials/mike-quill.jpg",
+    image: "",
+    logo: "/images/projects/little-tree-farms/little-tree-farms-logo.webp",
     rating: 5,
     featured: true,
   },
   {
     id: "testimonial-4",
     quote:
-      "Builder AI understood my vision for a health-focused brand. The website looks amazing and my clients love it.",
+      "Builder AI built my entire online store from scratch. The website looks professional, products are easy to manage, and customers love the shopping experience.",
     author: "Romeo",
     role: "Owner",
     company: "Romeo's Health Heaven",
-    image: "/images/testimonials/romeo.jpg",
+    image: "/images/projects/remeos-healthcare/romeos-health-heaven-owner.webp",
+    logo: "/images/projects/remeos-healthcare/romeos-health-heaven-logo.webp",
     rating: 5,
-    featured: false,
+    featured: true,
   },
 ];

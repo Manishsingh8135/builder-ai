@@ -66,19 +66,36 @@ export function TestimonialsSection() {
               <p className="text-xl lg:text-2xl text-foreground leading-relaxed mb-8">
                 &ldquo;{featuredTestimonials[currentIndex].quote}&rdquo;
               </p>
-              <div className="flex items-center">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
-                  {featuredTestimonials[currentIndex].author.charAt(0)}
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-foreground">
-                    {featuredTestimonials[currentIndex].author}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  {featuredTestimonials[currentIndex].image ? (
+                    <img
+                      src={featuredTestimonials[currentIndex].image}
+                      alt={featuredTestimonials[currentIndex].author}
+                      className="w-14 h-14 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+                      {featuredTestimonials[currentIndex].author.charAt(0)}
+                    </div>
+                  )}
+                  <div className="ml-4">
+                    <div className="font-semibold text-foreground">
+                      {featuredTestimonials[currentIndex].author}
+                    </div>
+                    <div className="text-muted-foreground">
+                      {featuredTestimonials[currentIndex].role},{" "}
+                      {featuredTestimonials[currentIndex].company}
+                    </div>
                   </div>
-                  <div className="text-muted-foreground">
-                    {featuredTestimonials[currentIndex].role},{" "}
-                    {featuredTestimonials[currentIndex].company}
-                  </div>
                 </div>
+                {featuredTestimonials[currentIndex].logo && (
+                  <img
+                    src={featuredTestimonials[currentIndex].logo}
+                    alt={`${featuredTestimonials[currentIndex].company} logo`}
+                    className="h-10 w-auto object-contain opacity-60"
+                  />
+                )}
               </div>
             </motion.div>
           </AnimatePresence>

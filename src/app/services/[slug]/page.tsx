@@ -66,10 +66,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
   }
 
   const relatedCaseStudies = caseStudies.filter((cs) => cs.service === service.id).slice(0, 2);
+  const isDigitalMarketing = service.category === "digital-marketing";
 
   return (
     <>
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle">
+      <section className={`pt-32 pb-20 lg:pt-40 lg:pb-32 ${isDigitalMarketing ? "bg-emerald-50/50 dark:bg-emerald-950/10" : "gradient-bg-subtle"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <Link
@@ -78,8 +79,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
             >
               ← Back to Services
             </Link>
-            <div className="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
-              <Icon name={service.icon} className="h-8 w-8 text-white" />
+            {isDigitalMarketing && (
+              <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-4">
+                Digital Marketing
+              </span>
+            )}
+            <div className={`w-16 h-16 rounded-2xl ${isDigitalMarketing ? "bg-emerald-500/10" : "gradient-bg"} flex items-center justify-center mb-6`}>
+              <Icon name={service.icon} className={`h-8 w-8 ${isDigitalMarketing ? "text-emerald-600 dark:text-emerald-400" : "text-white"}`} />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
               {service.title}
@@ -88,9 +94,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {service.tagline}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gradient-bg" asChild>
+              <Button size="lg" className={isDigitalMarketing ? "bg-emerald-600 hover:bg-emerald-700" : "gradient-bg"} asChild>
                 <Link href="/schedule">
-                  Book a Consultation
+                  {isDigitalMarketing ? "Get a Free Audit" : "Book a Consultation"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -215,8 +221,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       <CTASection
-        title={`Ready to ${service.shortTitle === "AI Automation" ? "Automate" : "Build"}?`}
-        description={`Let's discuss how ${service.shortTitle.toLowerCase()} can transform your business operations.`}
+        title={isDigitalMarketing ? `Ready to Grow Your Online Presence?` : `Ready to ${service.shortTitle === "AI Automation" ? "Automate" : "Build"}?`}
+        description={isDigitalMarketing 
+          ? `Get a free ${service.shortTitle} audit and discover how we can help you reach more customers online.`
+          : `Let's discuss how ${service.shortTitle.toLowerCase()} can transform your business operations.`
+        }
       />
     </>
   );

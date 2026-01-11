@@ -20,11 +20,24 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h4 className="font-mono text-sm text-primary mb-6 uppercase tracking-widest">Services</h4>
+              <h4 className="font-mono text-sm text-primary mb-6 uppercase tracking-widest">Development</h4>
               <ul className="space-y-4">
                 {footerNavigation.services.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-mono text-sm text-emerald-600 dark:text-emerald-400 mb-6 uppercase tracking-widest">Marketing</h4>
+              <ul className="space-y-4">
+                {footerNavigation.digitalMarketing.map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
                       {item.label}
@@ -55,23 +68,13 @@ export function Footer() {
                     Email Us
                   </a>
                 </li>
-                {/* Social media links temporarily hidden
-                <li>
-                  <a href={siteConfig.social.twitter} className="text-muted-foreground hover:text-foreground transition-colors">
-                    Twitter / X
-                  </a>
-                </li>
-                <li>
-                  <a href={siteConfig.social.linkedin} className="text-muted-foreground hover:text-foreground transition-colors">
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href={siteConfig.social.github} className="text-muted-foreground hover:text-foreground transition-colors">
-                    GitHub
-                  </a>
-                </li>
-                */}
+                {footerNavigation.resources.slice(0, 3).map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

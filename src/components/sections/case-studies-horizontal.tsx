@@ -47,10 +47,10 @@ export function CaseStudiesHorizontal() {
         target: targetRef,
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-220%"]);
 
     return (
-        <section ref={targetRef} className="relative bg-background lg:h-[300vh]">
+        <section ref={targetRef} className="relative bg-background lg:h-[400vh]">
             {/* Desktop Horizontal Scroll */}
             <div className="hidden lg:flex sticky top-0 h-screen items-center overflow-hidden">
                 <div className="absolute top-10 left-10 z-10">
@@ -64,7 +64,7 @@ export function CaseStudiesHorizontal() {
                         <Link
                             key={study.id}
                             href={study.href}
-                            className="group relative w-[45vw] aspect-[4/3] flex-shrink-0 bg-secondary overflow-hidden block"
+                            className="group relative w-[70vw] aspect-[16/9] flex-shrink-0 bg-secondary overflow-hidden block rounded-3xl border border-white/5 shadow-2xl"
                         >
                             <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 ease-out">
                                 <div className="absolute inset-0 bg-muted" />
