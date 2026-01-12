@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/case-studies";
@@ -70,40 +71,66 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <section className={`pt-32 pb-20 lg:pt-40 lg:pb-32 ${isDigitalMarketing ? "bg-emerald-50/50 dark:bg-emerald-950/10" : "gradient-bg-subtle"}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Link
-              href="/services"
-              className="inline-flex items-center text-muted-foreground hover:text-foreground mb-6"
-            >
-              ← Back to Services
-            </Link>
-            {isDigitalMarketing && (
-              <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-4">
-                Digital Marketing
-              </span>
+      <section className={`pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle relative overflow-hidden`}>
+        {service.image && (
+          <div className="absolute inset-0 opacity-10">
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Link
+                href="/services"
+                className="inline-flex items-center text-muted-foreground hover:text-foreground mb-6"
+              >
+                ← Back to Services
+              </Link>
+              {isDigitalMarketing && (
+                <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-4">
+                  Digital Marketing
+                </span>
+              )}
+              <div className={`w-16 h-16 rounded-2xl ${isDigitalMarketing ? "bg-emerald-500/10" : "gradient-bg"} flex items-center justify-center mb-6`}>
+                <Icon name={service.icon} className={`h-8 w-8 ${isDigitalMarketing ? "text-emerald-600 dark:text-emerald-400" : "text-white"}`} />
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+                {service.title}
+              </h1>
+              <p className="mt-6 text-xl text-muted-foreground">
+                {service.tagline}
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className={isDigitalMarketing ? "bg-emerald-600 hover:bg-emerald-700" : "gradient-bg"} asChild>
+                  <Link href="/schedule">
+                    {isDigitalMarketing ? "Get a Free Audit" : "Book a Consultation"}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/case-studies">See Case Studies</Link>
+                </Button>
+              </div>
+            </div>
+            {service.image && (
+              <div className="hidden lg:block">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-border h-[400px]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
             )}
-            <div className={`w-16 h-16 rounded-2xl ${isDigitalMarketing ? "bg-emerald-500/10" : "gradient-bg"} flex items-center justify-center mb-6`}>
-              <Icon name={service.icon} className={`h-8 w-8 ${isDigitalMarketing ? "text-emerald-600 dark:text-emerald-400" : "text-white"}`} />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              {service.title}
-            </h1>
-            <p className="mt-6 text-xl text-muted-foreground">
-              {service.tagline}
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className={isDigitalMarketing ? "bg-emerald-600 hover:bg-emerald-700" : "gradient-bg"} asChild>
-                <Link href="/schedule">
-                  {isDigitalMarketing ? "Get a Free Audit" : "Book a Consultation"}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/case-studies">See Case Studies</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
