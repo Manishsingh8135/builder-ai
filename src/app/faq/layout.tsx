@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { generatePageMetadata } from "@/lib/seo-config";
+import { generatePageMetadata, generateFAQSchema } from "@/lib/seo-config";
+import { faqs } from "@/data/faq";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "FAQ | MVP Development Questions Answered",
@@ -17,10 +18,27 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/faq",
 });
 
+const allFaqQuestions = faqs.flatMap((category) =>
+  category.questions.map((q) => ({
+    question: q.question,
+    answer: q.answer,
+  }))
+);
+
+const faqSchema = generateFAQSchema(allFaqQuestions);
+
 export default function FAQLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {children}
+    </>
+  );
 }

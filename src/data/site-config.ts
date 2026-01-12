@@ -5,8 +5,8 @@ export const siteConfig = {
     "We help startups and businesses launch their MVPs quickly with AI-powered development, custom web & mobile apps, and complete digital solutions.",
   contact: {
     email: "hello@builder-ai.dev",
-    salesEmail: "sales@builder-ai.dev",
-    supportEmail: "support@builder-ai.dev",
+    salesEmail: "hello@builder-ai.dev",
+    supportEmail: "hello@builder-ai.dev",
     // Phone numbers temporarily removed
     // phone: {
     //   us: "+1 (555) 123-4567",
