@@ -9,6 +9,8 @@ import { Icon } from "@/components/common/icon";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
+import { Breadcrumb } from "@/components/common/breadcrumb";
+import { generateBreadcrumbSchema, generateServiceSchema, siteUrl } from "@/lib/seo-config";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -69,8 +71,33 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const relatedCaseStudies = caseStudies.filter((cs) => cs.service === service.id).slice(0, 2);
   const isDigitalMarketing = service.category === "digital-marketing";
 
+  const breadcrumbItems = [
+    { label: "Services", href: "/services" },
+    { label: service.shortTitle, href: `/services/${slug}` },
+  ];
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Services", url: `${siteUrl}/services` },
+    { name: service.title, url: `${siteUrl}/services/${slug}` },
+  ]);
+
+  const serviceSchema = generateServiceSchema({
+    name: service.title,
+    description: service.description,
+    url: `${siteUrl}/services/${slug}`,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className={`pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle relative overflow-hidden`}>
         {service.image && (
           <div className="absolute inset-0 opacity-10">
@@ -84,14 +111,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         )}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumb items={breadcrumbItems} className="mb-8" />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Link
-                href="/services"
-                className="inline-flex items-center text-muted-foreground hover:text-foreground mb-6"
-              >
-                ← Back to Services
-              </Link>
               {isDigitalMarketing && (
                 <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-4">
                   Digital Marketing

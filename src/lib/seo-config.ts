@@ -80,9 +80,8 @@ export const defaultSEO: Metadata = {
     canonical: siteUrl,
   },
   verification: {
-    google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
+    // google: "ADD_YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE_HERE",
+    // bing: "ADD_YOUR_BING_WEBMASTER_VERIFICATION_CODE_HERE",
   },
   category: "technology",
 };
@@ -235,10 +234,10 @@ export const professionalServiceSchema = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "47",
+    ratingValue: "5.0",
+    reviewCount: "5",
     bestRating: "5",
-    worstRating: "1",
+    worstRating: "5",
   },
   review: [
     {

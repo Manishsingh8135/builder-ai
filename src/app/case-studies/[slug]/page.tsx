@@ -6,6 +6,8 @@ import { caseStudies } from "@/data/case-studies";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
+import { Breadcrumb } from "@/components/common/breadcrumb";
+import { generateBreadcrumbSchema, generateCaseStudySchema, siteUrl } from "@/lib/seo-config";
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
@@ -70,12 +72,64 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     .filter((s) => s.id !== study.id && (s.industry === study.industry || s.service === study.service))
     .slice(0, 2);
 
+  const breadcrumbItems = [
+    { label: "Case Studies", href: "/case-studies" },
+    { label: study.title, href: `/case-studies/${slug}` },
+  ];
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Case Studies", url: `${siteUrl}/case-studies` },
+    { name: study.title, url: `${siteUrl}/case-studies/${slug}` },
+  ]);
+
+  const caseStudySchema = generateCaseStudySchema({
+    title: study.title,
+    description: study.challenge,
+    url: `${siteUrl}/case-studies/${slug}`,
+    client: study.client,
+    industry: study.industry,
+    results: study.results,
+  });
+
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "Service",
+      "name": "Builder AI Development Services",
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5",
+    },
+    "author": {
+      "@type": "Person",
+      "name": study.testimonial.author,
+    },
+    "reviewBody": study.testimonial.quote,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumb items={breadcrumbItems} className="mb-8" />
           <Link
             href="/case-studies"
             className="inline-flex items-center text-muted-foreground hover:text-primary mb-12 transition-colors group"

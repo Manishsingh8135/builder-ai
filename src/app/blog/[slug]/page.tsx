@@ -6,6 +6,8 @@ import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { blogPosts } from "@/data/blog-posts";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
+import { Breadcrumb } from "@/components/common/breadcrumb";
+import { generateBreadcrumbSchema, generateArticleSchema, siteUrl } from "@/lib/seo-config";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -72,8 +74,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .filter((p) => p.id !== post.id && p.category === post.category)
     .slice(0, 2);
 
+  const breadcrumbItems = [
+    { label: "Blog", href: "/blog" },
+    { label: post.title, href: `/blog/${slug}` },
+  ];
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Blog", url: `${siteUrl}/blog` },
+    { name: post.title, url: `${siteUrl}/blog/${slug}` },
+  ]);
+
+  const articleSchema = generateArticleSchema({
+    title: post.title,
+    description: post.excerpt,
+    url: `${siteUrl}/blog/${slug}`,
+    image: post.image,
+    publishedAt: post.publishedAt,
+    updatedAt: post.updatedAt,
+    author: "Builder AI Team",
+    tags: post.tags,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <article className="min-h-screen bg-background">
         {/* Cinematic Hero Section */}
         <div className="relative h-[60vh] lg:h-[70vh] min-h-[500px] w-full overflow-hidden">
@@ -95,6 +127,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="absolute inset-0 z-30 flex flex-col justify-end pb-16 lg:pb-24">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <Breadcrumb items={breadcrumbItems} className="mb-6 [&_*]:text-white/80 [&_*:hover]:text-white" />
                     <Link
                         href="/blog"
                         className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors group"
