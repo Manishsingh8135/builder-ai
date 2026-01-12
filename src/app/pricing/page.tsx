@@ -10,11 +10,24 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "Pricing",
-  description: "Transparent pricing for AI automation and custom software development projects.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "Pricing | MVP Development Cost & Custom Software Pricing",
+  description:
+    "Transparent pricing for MVP development starting from $5,000. Web app development, mobile apps, and AI integration packages. No hidden fees. Get a free quote for your project today.",
+  keywords: [
+    "MVP development cost",
+    "how much does MVP development cost",
+    "startup app development pricing",
+    "custom software development cost",
+    "web app development pricing",
+    "mobile app development cost",
+    "AI integration pricing",
+    "software development rates",
+  ],
+  path: "/pricing",
+});
 
 export default function PricingPage() {
   return (

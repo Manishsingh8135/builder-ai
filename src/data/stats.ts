@@ -14,7 +14,7 @@ export const impactStats = [
 
 export const experienceStats = [
   { value: "5+", label: "Years Experience" },
-  { value: "10+", label: "Team Members" },
+  { value: "100%", label: "Dedicated Focus" },
   { value: "50+", label: "Integrations Built" },
   { value: "24/7", label: "Support Available" },
 ];

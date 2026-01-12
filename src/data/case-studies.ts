@@ -24,35 +24,84 @@ export interface CaseStudy {
   technologies: string[];
   testimonial: CaseStudyTestimonial;
   images?: string[];
+  logo?: string;
+  ownerImage?: string;
+  features?: {
+    category: string;
+    items: string[];
+  }[];
 }
 
 export const caseStudies: CaseStudy[] = [
   {
     id: "r1p-fitness",
     slug: "r1p-fitness-gym-management",
-    title: "Complete Gym Management System for R1P FITNESS",
+    title: "Full-Stack Gym Management Platform for R1P FITNESS",
     client: "R1P FITNESS - ripfitgym.com",
     industry: "Fitness & Wellness",
     service: "mvp-development",
     duration: "4 months",
     featured: true,
     challenge:
-      "Hipolito Rivera needed a complete digital solution for his gym in Hawaii - from member management to payments, class scheduling, and performance tracking. Existing solutions were expensive and didn't fit his specific needs.",
+      "Hipolito Rivera needed a complete digital transformation for his gym in Hawaii. Existing gym software was expensive ($200-500/month), lacked customization, and required multiple subscriptions for different features. He wanted a single, custom solution that he owned outright.",
     solution:
-      "We built a comprehensive gym management system from scratch including member portal, admin dashboard, payment processing with Stripe, class booking, trainer management, workout tracking, and detailed analytics.",
+      "We built a complete gym management ecosystem from scratch: (1) Marketing landing page to attract new members, (2) Member app with authentication, payments via Stripe, personal dashboard, workout tracking, gamification with points & rewards system, and advanced activity filtering, (3) State-of-the-art admin panel with booking management, class scheduling, user management, workout & activity management, and complete business analytics.",
     results: [
       { metric: "100%", label: "Digital Operations" },
       { metric: "60%", label: "Admin Time Saved" },
       { metric: "3x", label: "Member Engagement" },
-      { metric: "Zero", label: "Monthly Software Fees" },
+      { metric: "$0", label: "Monthly Software Fees" },
     ],
-    technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Vercel"],
-    images: ["/images/r1pfitness1.png", "/images/r1pfitness2.png", "/images/r1pfitness3.png"],
+    technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS", "Vercel"],
+    images: [
+      "/images/projects/r1pfitness/r1pfitness-site-1.png",
+      "/images/projects/r1pfitness/r1pfitness-site-2.png",
+      "/images/projects/r1pfitness/r1pfitness-site-3.png"
+    ],
+    logo: "/images/projects/r1pfitness/r1pfitness-logo.png",
+    ownerImage: "/images/projects/r1pfitness/r1pfitness-owner.jpg",
+    features: [
+      {
+        category: "Landing Page",
+        items: [
+          "Modern marketing website",
+          "Membership plans showcase",
+          "Class schedules display",
+          "Lead capture forms",
+          "Mobile responsive design",
+        ],
+      },
+      {
+        category: "Member App",
+        items: [
+          "User authentication & profiles",
+          "Stripe payment integration",
+          "Personal member dashboard",
+          "Workout & activity tracking",
+          "Gamification with points system",
+          "Rewards & achievements",
+          "Advanced filtering for workouts",
+          "Class booking system",
+        ],
+      },
+      {
+        category: "Admin Panel",
+        items: [
+          "Complete booking management",
+          "Class & schedule management",
+          "Member management & analytics",
+          "Workout library management",
+          "Activity tracking oversight",
+          "Revenue & payment reports",
+          "Automated notifications",
+        ],
+      },
+    ],
     testimonial: {
       quote:
         "Builder AI delivered exactly what I envisioned. My gym now runs smoothly with a custom system that does everything I need - no more paying for multiple subscriptions.",
       author: "Hipolito Rivera",
-      role: "Owner, R1P FITNESS",
+      role: "Owner, R1P FITNESS, Hawaii USA",
     },
   },
   {
@@ -75,7 +124,10 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Mobile", label: "First Design" },
     ],
     technologies: ["Next.js", "TailwindCSS", "Vercel", "Google Analytics"],
-    images: ["/images/sheddler1.png", "/images/sheddler2.png"],
+    images: [
+      "/images/projects/sheddler/Sheddler-site-1.png",
+      "/images/projects/sheddler/Sheddler-site-2.png"
+    ],
     testimonial: {
       quote:
         "The website perfectly represents our services. We've seen a significant increase in client inquiries since launching.",
@@ -86,53 +138,117 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "little-tree-farm",
     slug: "little-tree-farm-website",
-    title: "E-commerce & Brand Website for Little Tree Farm",
+    title: "Complete Digital Transformation for Little Tree Farm NS",
     client: "Little Tree Farm NS - littletreefarmns.com",
     industry: "Agriculture & E-commerce",
     service: "web-apps",
-    duration: "8 weeks",
+    duration: "10 weeks",
     featured: true,
     challenge:
-      "Mike Quill's farm in Nova Scotia needed an online presence to sell products directly to customers, share the farm's story, and build a community around sustainable agriculture.",
+      "Mike Quill's farm in Nova Scotia, Canada needed a complete digital transformation - from zero online presence to a fully operational e-commerce business. They needed everything: website development, product setup, online store, email marketing, SEO, and ongoing digital marketing to reach local customers.",
     solution:
-      "We created a beautiful, story-driven website with e-commerce functionality, product catalog, farm blog, and newsletter integration. The design reflects the authentic, natural brand of the farm.",
+      "We delivered a complete end-to-end digital solution built on WordPress with Hostinger hosting. This wasn't just a website - we built their entire online business from scratch: (1) Complete WordPress website development with custom theme, (2) Full e-commerce setup with WooCommerce - all products, categories, pricing, inventory, (3) SEO optimization for local Nova Scotia search rankings, (4) AIO (AI-Optimized) content strategy, (5) Facebook & Meta Ads campaigns for local reach, (6) Email marketing setup with automated campaigns, (7) Google Analytics integration for performance tracking, (8) Complete business launch support and training.",
     results: [
-      { metric: "Direct", label: "Sales Channel" },
+      { metric: "100%", label: "Online Business Setup" },
+      { metric: "Top 5", label: "Local Search Rankings" },
       { metric: "500+", label: "Newsletter Subscribers" },
-      { metric: "Local", label: "SEO Optimized" },
-      { metric: "Brand", label: "Story Told" },
+      { metric: "3x", label: "Monthly Revenue Growth" },
     ],
-    technologies: ["Next.js", "Shopify", "TailwindCSS", "Mailchimp"],
+    technologies: ["WordPress", "WooCommerce", "Hostinger", "Yoast SEO", "Mailchimp", "Meta Ads", "Google Analytics"],
+    images: [
+      "/images/projects/little-tree-farms/little-tree-farms-site-1.png",
+      "/images/projects/little-tree-farms/little-tree-farms-site-2.png"
+    ],
+    logo: "/images/projects/little-tree-farms/little-tree-farms-logo.webp",
+    features: [
+      {
+        category: "Website Development",
+        items: [
+          "Custom WordPress theme design",
+          "Mobile-responsive layout",
+          "Fast hosting on Hostinger",
+          "SSL security setup",
+          "Contact forms & lead capture",
+        ],
+      },
+      {
+        category: "E-commerce Setup",
+        items: [
+          "WooCommerce store configuration",
+          "Complete product catalog setup",
+          "Payment gateway integration",
+          "Shipping & tax configuration",
+          "Inventory management system",
+        ],
+      },
+      {
+        category: "Digital Marketing",
+        items: [
+          "Local SEO optimization",
+          "AIO content strategy",
+          "Facebook & Meta Ads management",
+          "Email marketing campaigns",
+          "Google Analytics & tracking",
+        ],
+      },
+    ],
     testimonial: {
       quote:
-        "The website captures the heart of our farm perfectly. Customers love being able to order online and learn about where their food comes from.",
+        "Builder AI didn't just build us a website - they launched our entire online business. From setting up every product to running our Facebook ads, they handled everything. We went from zero online presence to getting orders from across Nova Scotia.",
       author: "Mike Quill",
-      role: "Owner, Little Tree Farm NS",
+      role: "Owner, Little Tree Farm NS, Canada",
     },
   },
   {
     id: "romeos-health-heaven",
     slug: "romeos-health-heaven-platform",
-    title: "Health & Wellness Platform for Romeo's Health Heaven",
+    title: "Complete E-commerce Platform for Romeo's Health Heaven",
     client: "Romeo's Health Heaven - romeoshealthheaven.com",
-    industry: "Health & Wellness",
+    industry: "Health & Wellness E-commerce",
     service: "web-apps",
-    duration: "6 weeks",
-    featured: false,
+    duration: "8 weeks",
+    featured: true,
     challenge:
-      "Romeo needed a professional platform to showcase health and wellness services, share content, and enable customers to easily browse offerings and make inquiries.",
+      "Romeo needed a complete e-commerce solution to sell health and wellness products online. Required a professional platform with product catalog, secure checkout, and full digital marketing support to reach health-conscious customers.",
     solution:
-      "We built a clean, wellness-focused website with service showcases, content sections, and easy contact functionality. The design emphasizes trust, health, and professionalism.",
+      "We delivered a comprehensive WordPress e-commerce solution: (1) Custom WordPress website with health & wellness branding, (2) Full WooCommerce store setup with all products, categories, and pricing, (3) Secure payment processing integration, (4) SEO optimization for health & wellness keywords, (5) Email marketing integration, (6) Mobile-optimized shopping experience, (7) Analytics and conversion tracking setup.",
     results: [
-      { metric: "Professional", label: "Online Presence" },
-      { metric: "Mobile", label: "Optimized" },
-      { metric: "Fast", label: "Load Times" },
-      { metric: "SEO", label: "Ready" },
+      { metric: "100%", label: "E-commerce Ready" },
+      { metric: "Mobile", label: "First Design" },
+      { metric: "SEO", label: "Optimized" },
+      { metric: "Growing", label: "Online Sales" },
     ],
-    technologies: ["Next.js", "TailwindCSS", "Vercel"],
+    technologies: ["WordPress", "WooCommerce", "Yoast SEO", "Mailchimp", "Google Analytics"],
+    images: [
+      "/images/projects/remeos-healthcare/romeos-healthcare-site.png"
+    ],
+    logo: "/images/projects/remeos-healthcare/romeos-health-heaven-logo.webp",
+    ownerImage: "/images/projects/remeos-healthcare/romeos-health-heaven-owner.webp",
+    features: [
+      {
+        category: "Website & Store",
+        items: [
+          "Custom WordPress theme",
+          "WooCommerce e-commerce setup",
+          "Product catalog management",
+          "Secure payment processing",
+          "Mobile-responsive design",
+        ],
+      },
+      {
+        category: "Digital Marketing",
+        items: [
+          "SEO optimization",
+          "Email marketing setup",
+          "Social media integration",
+          "Google Analytics tracking",
+          "Conversion optimization",
+        ],
+      },
+    ],
     testimonial: {
       quote:
-        "Builder AI understood my vision for a health-focused brand. The website looks amazing and my clients love it.",
+        "Builder AI built my entire online store from scratch. The website looks professional, products are easy to manage, and customers love the shopping experience. They handled everything so I could focus on my products.",
       author: "Romeo",
       role: "Owner, Romeo's Health Heaven",
     },
@@ -157,7 +273,11 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Growing", label: "Community" },
     ],
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Mapbox", "Vercel"],
-    images: ["/images/travelspire1.png", "/images/travelspire2.png"],
+    images: [
+      "/images/projects/travelspire-ne/travelspire-site-1.png",
+      "/images/projects/travelspire-ne/travelspire-site-2.png"
+    ],
+    logo: "/images/projects/travelspire-ne/travelspirene-logo.webp",
     testimonial: {
       quote:
         "Travel Spirene is our passion project to make Northeast India exploration easy and accessible. We're building the platform we wished existed.",

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { blogPosts } from "@/data/blog-posts";
-import { teamMembers } from "@/data/team";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/cta-section";
 
@@ -21,9 +21,42 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
+  
+  const siteUrl = "https://builder-ai.dev";
+  const pageUrl = `${siteUrl}/blog/${slug}`;
+  
   return {
-    title: post.title,
+    title: `${post.title} | Builder AI Blog`,
     description: post.excerpt,
+    keywords: [
+      ...post.tags.map(t => t.toLowerCase()),
+      post.category.toLowerCase(),
+      "software development",
+      "startup tips",
+    ],
+    authors: [{ name: "Builder AI Team" }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: pageUrl,
+      type: "article",
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+      authors: ["Builder AI Team"],
+      tags: post.tags,
+      images: post.image 
+        ? [{ url: post.image, width: 1200, height: 630, alt: post.title }]
+        : [{ url: `${siteUrl}/images/og_image.jpeg`, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : [`${siteUrl}/images/og_image.jpeg`],
+    },
+    alternates: {
+      canonical: pageUrl,
+    },
   };
 }
 
@@ -35,127 +68,144 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const author = teamMembers.find((m) => m.id === post.author);
   const relatedPosts = blogPosts
     .filter((p) => p.id !== post.id && p.category === post.category)
     .slice(0, 2);
 
   return (
     <>
-      <section className="pt-32 pb-12 lg:pt-40 lg:pb-16 gradient-bg-subtle">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Blog
-          </Link>
-          <Badge className="mb-4">{post.category}</Badge>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            {post.title}
-          </h1>
-          <p className="mt-6 text-xl text-muted-foreground">
-            {post.excerpt}
-          </p>
-          <div className="flex flex-wrap items-center gap-6 mt-8">
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent mr-3 flex items-center justify-center">
-                <span className="text-white font-bold">
-                  {author?.name?.charAt(0) || "T"}
-                </span>
-              </div>
-              <div>
-                <div className="font-medium text-foreground">
-                  {author?.name || "Team"}
+      <article className="min-h-screen bg-background">
+        {/* Cinematic Hero Section */}
+        <div className="relative h-[60vh] lg:h-[70vh] min-h-[500px] w-full overflow-hidden">
+            <div className="absolute inset-0 bg-zinc-900/50 z-10" />
+            
+            {post.image ? (
+                <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            ) : (
+                <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950" />
+            )}
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-20" />
+
+            <div className="absolute inset-0 z-30 flex flex-col justify-end pb-16 lg:pb-24">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <Link
+                        href="/blog"
+                        className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors group"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mr-3 group-hover:bg-primary group-hover:text-black transition-colors">
+                            <ArrowLeft className="h-4 w-4" />
+                        </div>
+                        <span className="font-medium tracking-wide text-sm">Back to Journal</span>
+                    </Link>
+
+                    <Badge className="bg-primary/90 hover:bg-primary text-black border-none mb-6 text-sm py-1.5 px-4 pointer-events-none">
+                        {post.category}
+                    </Badge>
+                    
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+                        {post.title}
+                    </h1>
+                    
+                    <div className="flex flex-wrap items-center gap-6 text-white/80 text-sm font-medium">
+                        <div className="flex items-center gap-2">
+                             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs text-black font-bold">
+                                B
+                             </div>
+                             <span>Builder AI Team</span>
+                        </div>
+                        <span className="w-1 h-1 rounded-full bg-white/30" />
+                        <div className="flex items-center gap-2">
+                             <Calendar className="w-4 h-4" />
+                             <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                        </div>
+                        <span className="w-1 h-1 rounded-full bg-white/30" />
+                        <div className="flex items-center gap-2">
+                             <Clock className="w-4 h-4" />
+                             <span>{post.readTime} min read</span>
+                        </div>
+                    </div>
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  {author?.role || "Author"}
-                </div>
-              </div>
             </div>
-            <div className="flex items-center text-muted-foreground">
-              <Calendar className="h-4 w-4 mr-2" />
-              {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </div>
-            <div className="flex items-center text-muted-foreground">
-              <Clock className="h-4 w-4 mr-2" />
-              {post.readTime} min read
-            </div>
-          </div>
         </div>
-      </section>
 
-      <section className="py-20 lg:py-32 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl mb-12" />
+        {/* Content Section */}
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative">
+             <div className="custom-prose max-w-none">
+                <p className="lead text-xl md:text-2xl text-muted-foreground font-light mb-12 border-l-4 border-primary pl-6">
+                    {post.excerpt}
+                </p>
 
-          <article className="prose prose-lg max-w-none">
-            <p>
-              This is where the full blog post content would appear. In a production environment, 
-              this content would be loaded from a CMS like Sanity, Contentful, or stored as MDX files.
-            </p>
-            <h2>Introduction</h2>
-            <p>
-              The content here demonstrates how a blog post would be structured. Each post 
-              would have rich formatting capabilities including headers, lists, code blocks, 
-              and embedded media.
-            </p>
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>First important point from the article</li>
-              <li>Second key insight for readers</li>
-              <li>Third actionable recommendation</li>
-            </ul>
-            <h2>Conclusion</h2>
-            <p>
-              The article would conclude with a summary and call to action, encouraging readers 
-              to implement what they&apos;ve learned or reach out for help with their specific situation.
-            </p>
-          </article>
+                {post.content ? (
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                ) : (
+                    <p className="text-muted-foreground italic">Content coming soon...</p>
+                )}
+             </div>
 
-          <div className="mt-12 pt-8 border-t border-border">
-            <div className="flex items-center gap-2 mb-4">
-              <Tag className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Tags:</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </div>
+             <div className="mt-16 pt-8 border-t border-border flex flex-wrap gap-3">
+                 {post.tags.map(tag => (
+                     <Badge key={tag} variant="secondary" className="px-3 py-1 text-sm bg-muted hover:bg-muted/80 transition-colors">
+                         #{tag}
+                     </Badge>
+                 ))}
+             </div>
         </div>
-      </section>
+      </article>
 
+      {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 lg:py-32 bg-card">
+        <section className="py-20 bg-muted/20 border-t border-border/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground mb-8">
-              Related Articles
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-center justify-between mb-12">
+                 <h2 className="text-3xl font-bold tracking-tight">Keep Reading</h2>
+                 <Link href="/blog" className="text-primary font-medium hover:underline flex items-center gap-2">
+                    View Journal <ArrowLeft className="w-4 h-4 rotate-180" />
+                 </Link>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedPosts.map((related) => (
                 <Link
                   key={related.id}
                   href={`/blog/${related.slug}`}
-                  className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all"
+                  className="group flex flex-col bg-card border border-border/50 rounded-2xl overflow-hidden hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
                 >
-                  <Badge variant="secondary" className="mb-3">
-                    {related.category}
-                  </Badge>
-                  <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {related.title}
-                  </h3>
-                  <p className="text-muted-foreground line-clamp-2">
-                    {related.excerpt}
-                  </p>
+                   <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-60" />
+                        {related.image ? (
+                            <Image
+                                src={related.image}
+                                alt={related.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                        ) : (
+                             <div className="w-full h-full bg-zinc-800" />
+                        )}
+                        <Badge className="absolute top-4 left-4 z-20 bg-background/80 backdrop-blur text-foreground border-transparent">
+                            {related.category}
+                        </Badge>
+                   </div>
+                   
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {related.title}
+                    </h3>
+                    <p className="text-muted-foreground line-clamp-2 text-sm mb-6 flex-1">
+                      {related.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                        <span>{new Date(related.publishedAt).toLocaleDateString()}</span>
+                        <span>{related.readTime} min read</span>
+                    </div>
+                  </div>
                 </Link>
               ))}
             </div>

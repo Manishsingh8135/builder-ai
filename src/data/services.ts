@@ -17,6 +17,8 @@ export interface Service {
   tagline: string;
   description: string;
   icon: string;
+  image?: string;
+  category: "primary" | "digital-marketing";
   features: ServiceFeature[];
   benefits: ServiceBenefit[];
   useCases: string[];
@@ -30,9 +32,11 @@ export const services: Service[] = [
     title: "MVP Development",
     shortTitle: "MVP Development",
     tagline: "Launch your startup idea in weeks, not months",
+    category: "primary",
     description:
       "Turn your vision into a working product fast. We specialize in building MVPs that validate your idea, attract investors, and get real users—all while keeping costs low and speed high.",
     icon: "Rocket",
+    image: "/images/services/mvp-dev.png",
     features: [
       {
         title: "Rapid Prototyping",
@@ -94,9 +98,11 @@ export const services: Service[] = [
     title: "Custom Web Applications",
     shortTitle: "Web Apps",
     tagline: "Powerful web applications that scale with your business",
+    category: "primary",
     description:
       "We build modern, responsive web applications that deliver exceptional user experiences. From customer portals to complex SaaS platforms, we create solutions that drive engagement and growth.",
     icon: "Globe",
+    image: "/images/services/custom-webdev.png",
     features: [
       {
         title: "Custom SaaS Platforms",
@@ -158,9 +164,11 @@ export const services: Service[] = [
     title: "Mobile App Development",
     shortTitle: "Mobile Apps",
     tagline: "Native and cross-platform apps your users will love",
+    category: "primary",
     description:
       "Reach your customers wherever they are with beautifully designed mobile applications. We build for iOS and Android, using the latest technologies to deliver fast, reliable, and engaging experiences.",
     icon: "Smartphone",
+    image: "/images/services/mobile-app-dev.png",
     features: [
       {
         title: "Cross-Platform Development",
@@ -222,9 +230,11 @@ export const services: Service[] = [
     title: "AI Integration & Automation",
     shortTitle: "AI Integration",
     tagline: "Supercharge your product with AI capabilities",
+    category: "primary",
     description:
       "Add powerful AI features to your existing product or new MVP. From chatbots to content generation, we integrate the latest AI technologies to give you a competitive edge.",
     icon: "Bot",
+    image: "/images/services/ai-integration.png",
     features: [
       {
         title: "AI Chatbots",
@@ -278,6 +288,204 @@ export const services: Service[] = [
       "Vercel AI SDK",
       "Pinecone",
       "Supabase",
+    ],
+  },
+  {
+    id: "seo-services",
+    slug: "seo-services",
+    title: "SEO - Search Engine Optimization",
+    shortTitle: "SEO",
+    tagline: "Rank higher, get found, grow faster",
+    category: "digital-marketing",
+    description:
+      "Get your business found by customers actively searching for your services. We've helped businesses like Little Tree Farm NS achieve Top 5 local search rankings through strategic SEO optimization. Our approach combines technical excellence, local search expertise, and content optimization to drive real, measurable traffic growth.",
+    icon: "Search",
+    image: "/images/services/seo.png",
+    features: [
+      {
+        title: "Local SEO Optimization",
+        description: "Dominate local search results in your area - proven with Top 5 rankings for clients",
+        icon: "MapPin",
+      },
+      {
+        title: "Technical SEO Foundation",
+        description: "Site speed, mobile optimization, and technical health for better rankings",
+        icon: "Settings",
+      },
+      {
+        title: "Strategic Keyword Research",
+        description: "Target keywords your customers actually use to find businesses like yours",
+        icon: "Target",
+      },
+      {
+        title: "On-Page Optimization",
+        description: "Optimize every page with proper meta tags, headings, and content structure",
+        icon: "FileText",
+      },
+      {
+        title: "Google Business Profile",
+        description: "Complete setup and optimization for maximum local visibility",
+        icon: "Store",
+      },
+      {
+        title: "Monthly Performance Reports",
+        description: "Clear reporting on rankings, traffic growth, and business impact",
+        icon: "BarChart",
+      },
+    ],
+    benefits: [
+      { metric: "Top 5", label: "Local Rankings" },
+      { metric: "Proven", label: "Results" },
+      { metric: "Long-term", label: "Growth" },
+      { metric: "24/7", label: "Visibility" },
+    ],
+    useCases: [
+      "Local businesses wanting to dominate their area",
+      "E-commerce stores needing product visibility",
+      "Service providers competing for local customers",
+      "Restaurants and hospitality businesses",
+      "Professional services (legal, medical, consulting)",
+      "New businesses establishing online presence",
+    ],
+    technologies: [
+      "Google Search Console",
+      "Google Analytics",
+      "Yoast SEO",
+      "Google Business Profile",
+      "Schema Markup",
+      "Technical SEO Tools",
+    ],
+  },
+  {
+    id: "aio-services",
+    slug: "aio-services",
+    title: "AIO - AI Search Optimization",
+    shortTitle: "AIO",
+    tagline: "Get found by AI assistants and chatbots",
+    category: "digital-marketing",
+    description:
+      "Position your business for the future of search. As customers increasingly use ChatGPT, Perplexity, and other AI tools to find services, AIO ensures your business appears in AI-generated recommendations. We've implemented AIO strategies for clients like Little Tree Farm NS, optimizing their content to be AI-friendly and discoverable in the new era of search.",
+    icon: "Sparkles",
+    image: "/images/services/AIO.png",
+    features: [
+      {
+        title: "AI-Optimized Content Strategy",
+        description: "Content structured for AI comprehension and recommendations",
+        icon: "FileCode",
+      },
+      {
+        title: "Schema Markup Implementation",
+        description: "Structured data that helps AI understand your business",
+        icon: "Code",
+      },
+      {
+        title: "Conversational Query Optimization",
+        description: "Optimize for how people naturally ask AI assistants questions",
+        icon: "Mic",
+      },
+      {
+        title: "Entity & Brand Recognition",
+        description: "Establish your business as a recognized entity in AI knowledge bases",
+        icon: "Brain",
+      },
+      {
+        title: "FAQ & Answer Optimization",
+        description: "Structure content to answer common customer questions AI tools surface",
+        icon: "HelpCircle",
+      },
+      {
+        title: "Future-Ready SEO",
+        description: "Stay ahead as search evolves from keywords to AI-powered answers",
+        icon: "TrendingUp",
+      },
+    ],
+    benefits: [
+      { metric: "AI-Ready", label: "Content" },
+      { metric: "Future", label: "Proof" },
+      { metric: "Early", label: "Advantage" },
+      { metric: "Proven", label: "Strategy" },
+    ],
+    useCases: [
+      "Businesses preparing for AI-powered search",
+      "E-commerce stores wanting AI recommendations",
+      "Local businesses targeting voice search",
+      "Service providers answering customer questions",
+      "Companies building long-term digital presence",
+      "Forward-thinking businesses gaining early advantage",
+    ],
+    technologies: [
+      "Schema.org Markup",
+      "JSON-LD Structured Data",
+      "AI Content Optimization",
+      "Semantic HTML",
+      "Knowledge Graph Optimization",
+      "FAQ Schema",
+    ],
+  },
+  {
+    id: "meta-ads",
+    slug: "meta-ads",
+    title: "Facebook & Meta Ads",
+    shortTitle: "Meta Ads",
+    tagline: "Reach your perfect customers on Facebook & Instagram",
+    category: "digital-marketing",
+    description:
+      "Connect with local customers where they spend their time. We've managed successful Facebook & Meta Ads campaigns for businesses like Little Tree Farm NS, helping them reach customers across their region. Our approach focuses on local targeting, compelling ad creative, and continuous optimization to ensure your advertising budget delivers real business results.",
+    icon: "Megaphone",
+    image: "/images/services/facebook-meta-ads.png",
+    features: [
+      {
+        title: "Local Audience Targeting",
+        description: "Reach customers in your specific geographic area with precision",
+        icon: "MapPin",
+      },
+      {
+        title: "Ad Creative Development",
+        description: "Professional ad design that captures attention and drives action",
+        icon: "Image",
+      },
+      {
+        title: "Campaign Setup & Management",
+        description: "Complete campaign configuration, monitoring, and optimization",
+        icon: "Settings",
+      },
+      {
+        title: "Budget Optimization",
+        description: "Maximize results from your advertising spend through smart allocation",
+        icon: "DollarSign",
+      },
+      {
+        title: "Performance Tracking",
+        description: "Clear reporting on reach, engagement, and conversions",
+        icon: "BarChart",
+      },
+      {
+        title: "Ongoing Optimization",
+        description: "Continuous testing and refinement for better results over time",
+        icon: "TrendingUp",
+      },
+    ],
+    benefits: [
+      { metric: "Local", label: "Reach" },
+      { metric: "Proven", label: "Results" },
+      { metric: "Targeted", label: "Campaigns" },
+      { metric: "Measurable", label: "ROI" },
+    ],
+    useCases: [
+      "Local businesses reaching nearby customers",
+      "E-commerce stores driving online sales",
+      "Restaurants and retail promoting offers",
+      "Service businesses generating leads",
+      "Event promotion and ticket sales",
+      "Brand awareness in specific markets",
+    ],
+    technologies: [
+      "Meta Business Suite",
+      "Facebook Ads Manager",
+      "Instagram Advertising",
+      "Meta Pixel Tracking",
+      "Audience Insights",
+      "Campaign Analytics",
     ],
   },
 ];

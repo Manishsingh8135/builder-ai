@@ -2,20 +2,30 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
-import { companyValues, teamMembers } from "@/data/team";
+import { companyValues } from "@/data/team";
 import { companyStats } from "@/data/stats";
 import { Icon } from "@/components/common/icon";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
+import { generatePageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about our mission to help businesses transform through AI automation and custom software.",
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: "About Builder AI | MVP Development Experts & Startup Partners",
+  description:
+    "Meet the team behind Builder AI. We help startups and businesses launch MVPs in weeks, not months. Serving clients in USA, Canada, Europe & Middle East. 50+ projects delivered with 95% client satisfaction.",
+  keywords: [
+    "about Builder AI",
+    "MVP development team",
+    "startup development company",
+    "software development agency",
+    "tech startup partners",
+    "remote development team",
+    "offshore development company",
+  ],
+  path: "/about",
+});
 
 export default function AboutPage() {
-  const leadership = teamMembers.filter((m) => m.leadership);
-
   return (
     <>
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 gradient-bg-subtle">
@@ -48,12 +58,14 @@ export default function AboutPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Founded by engineers and consultants who saw how outdated processes were holding companies back, we combine deep technical expertise with real business understanding to deliver solutions that actually get used.
               </p>
+              {/* Team button temporarily hidden
               <Button asChild>
                 <Link href="/team">
                   Meet Our Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+              */}
             </div>
             <div className="grid grid-cols-2 gap-6">
               {companyStats.map((stat) => (
@@ -95,6 +107,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Leadership Team section temporarily hidden
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -131,6 +144,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-20 lg:py-32 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

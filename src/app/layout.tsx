@@ -1,30 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { siteConfig } from "@/data/site-config";
+import {
+  defaultSEO,
+  organizationSchema,
+  websiteSchema,
+  professionalServiceSchema,
+} from "@/lib/seo-config";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: `${siteConfig.name} | ${siteConfig.seo.title}`,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [
-    "AI automation",
-    "business automation",
-    "custom software",
-    "web development",
-    "mobile apps",
-    "digital transformation",
-  ],
-};
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = defaultSEO;
 
 export default function RootLayout({
   children,
@@ -33,7 +30,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceSchema),
+          }}
+        />
+      </head>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
