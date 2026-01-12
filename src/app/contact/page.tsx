@@ -15,13 +15,47 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      phone: formData.get("phone") as string,
+      service: formData.get("service") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      setIsSubmitted(true);
+      if (e.currentTarget) {
+        e.currentTarget.reset();
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,6 +85,12 @@ export default function ContactPage() {
                 Send Us a Message
               </h2>
 
+              {error && (
+                <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-4 mb-6">
+                  <p className="text-destructive text-sm">{error}</p>
+                </div>
+              )}
+
               {isSubmitted ? (
                 <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-8 text-center">
                   <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -60,7 +100,7 @@ export default function ContactPage() {
                     Message Sent!
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+                    Thank you for reaching out. We&apos;ll get back to you at hello@builder-ai.dev within 24 hours.
                   </p>
                   <Button onClick={() => setIsSubmitted(false)}>
                     Send Another Message
@@ -73,13 +113,13 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Name *
                       </label>
-                      <Input placeholder="Your name" required />
+                      <Input name="name" placeholder="Your name" required />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Email *
                       </label>
-                      <Input type="email" placeholder="your@email.com" required />
+                      <Input name="email" type="email" placeholder="your@email.com" required />
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -87,13 +127,13 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Company
                       </label>
-                      <Input placeholder="Your company" />
+                      <Input name="company" placeholder="Your company" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Phone
                       </label>
-                      <Input type="tel" placeholder="+1 (555) 000-0000" />
+                      <Input name="phone" type="tel" placeholder="+1 (555) 000-0000" />
                     </div>
                   </div>
                   <div>
@@ -101,6 +141,7 @@ export default function ContactPage() {
                       Service Interested In
                     </label>
                     <select 
+                      name="service"
                       aria-label="Service interested in"
                       className="w-full px-4 py-3 rounded-xl border border-input bg-background"
                     >
@@ -118,6 +159,7 @@ export default function ContactPage() {
                       Message *
                     </label>
                     <Textarea
+                      name="message"
                       placeholder="Tell us about your project..."
                       rows={5}
                       required
